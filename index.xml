@@ -6,7 +6,20 @@
     <description>Recent content on Fire int the hold Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 04 Jun 2022 06:43:10 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 11:22:26 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manager Macbook Touch Bar</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/manager-macbook-touch-bar/</link>
+      <pubDate>Fri, 10 Jun 2022 11:22:26 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/manager-macbook-touch-bar/</guid>
+      <description>Macbook touch bar 是我經常誤碰的東西，經常無意間的跳出，尤其我的手經常停於 ESC 附近。所以我需要將觸控的左上角觸控無效化。
+BetterTouchTool 可以使用 BetterTouchTool 管你的 touch，他的客製化非常多，可以輕鬆地將上面當作一個小螢幕一樣，監控一些數值。
+擁有豐富的支援，你可以透過 shell 執行各種 nodejs / python 等等，去抓取你要的數值。
+你可以設定各種手勢，以及各種對應的操控。比方五指一起滑是鎖定螢幕，在觸控板上畫一個圓圈做什麼做什麼。
+Pock 或者使用 Pock 來管理，但功能簡單，要開發一個應用也比較麻煩，必須學習 macos 原生應用才能撰寫。</description>
+    </item>
+    
     <item>
       <title>如何建置 Hugo 部落格</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/04/how-to-create-hugo-blog/</link>

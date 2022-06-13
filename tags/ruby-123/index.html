@@ -123,6 +123,32 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>學習 Ruby 123 - 8 符號
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>符號類似 2 &#34;Hello&#34; 這種，他是他沒辦法變更的，比方你沒辦法把 2 = 3，因為 2 不是一個變數，這個稱為符號
+使用時機 符號有不可變（immutable）的特性，在查找、比較的速度比字串還快，它很適合用來當 Hash 的 Key。
+方法 p &#34;name&#34;.to_sym # 印出 :name p &#34;name&#34;.intern # 印出 :name p :name.to_s # 印出 &#34;name&#34; p :name.id2name # 印出 &#34;name&#34; :name = &#34;Fire&#34; # 錯誤 SyntaxError %s(name) # 轉成符號 # 像字串一樣的操作 :hello.length # 5 :hello.upcase # :HELLO :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &#34;name&#34;.object_id # 2626737700 p &#34;name&#34;....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 13:28:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 8 符號" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 7 雜錯
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>建立雜錯 profile = {} profile = Hash.new profile = Hash[] 新舊寫法 # 舊寫法 profile = { :name =&gt; &#39;Fire&#39;, :assets =&gt; 10000 } # 新寫法 Ruby 1.9 版本以後 profile = { name: &#39;Fire&#39;, assets: 10000 } profile[:name] # Fire profile[:assets] # 10000 雜錯方法 profile = { name: &#39;Fire&#39;, assets: 10000 } p profile.keys # [:name, :assets] p profile.values # [&#34;Fire&#34;, 10000] 小貼士 Ruby 手冊 Hash https://ruby-doc.org/core/Hash.html </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 13:00:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 7 雜錯" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby7/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>學習 Ruby 123 - 6 流程與邏輯控制
     </h2>
   </header>

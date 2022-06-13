@@ -6,7 +6,27 @@
     <description>Recent content in Ruby 123 on Fire int the hold Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 13 Jun 2022 12:23:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/tags/ruby-123/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jun 2022 13:28:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/tags/ruby-123/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>學習 Ruby 123 - 8 符號</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/</link>
+      <pubDate>Mon, 13 Jun 2022 13:28:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/</guid>
+      <description>符號類似 2 &amp;quot;Hello&amp;quot; 這種，他是他沒辦法變更的，比方你沒辦法把 2 = 3，因為 2 不是一個變數，這個稱為符號
+使用時機 符號有不可變（immutable）的特性，在查找、比較的速度比字串還快，它很適合用來當 Hash 的 Key。
+方法 p &amp;#34;name&amp;#34;.to_sym # 印出 :name p &amp;#34;name&amp;#34;.intern # 印出 :name p :name.to_s # 印出 &amp;#34;name&amp;#34; p :name.id2name # 印出 &amp;#34;name&amp;#34; :name = &amp;#34;Fire&amp;#34; # 錯誤 SyntaxError %s(name) # 轉成符號 # 像字串一樣的操作 :hello.length # 5 :hello.upcase # :HELLO :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &amp;#34;name&amp;#34;.object_id # 2626737700 p &amp;#34;name&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 7 雜錯</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby7/</link>
+      <pubDate>Mon, 13 Jun 2022 13:00:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby7/</guid>
+      <description>建立雜錯 profile = {} profile = Hash.new profile = Hash[] 新舊寫法 # 舊寫法 profile = { :name =&amp;gt; &amp;#39;Fire&amp;#39;, :assets =&amp;gt; 10000 } # 新寫法 Ruby 1.9 版本以後 profile = { name: &amp;#39;Fire&amp;#39;, assets: 10000 } profile[:name] # Fire profile[:assets] # 10000 雜錯方法 profile = { name: &amp;#39;Fire&amp;#39;, assets: 10000 } p profile.keys # [:name, :assets] p profile.values # [&amp;#34;Fire&amp;#34;, 10000] 小貼士 Ruby 手冊 Hash https://ruby-doc.org/core/Hash.html </description>
+    </item>
+    
     <item>
       <title>學習 Ruby 123 - 6 流程與邏輯控制</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/</link>

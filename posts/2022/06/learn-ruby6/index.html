@@ -98,8 +98,8 @@
   "keywords": [
     "Ruby 123"
   ],
-  "articleBody": "等號 a = 10 b = \"10\" c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age \u003e= 18 p \"已成年\" end p \"已成年\" if age \u003e= 18 unless age = 12 if not age \u003e= 18 p \"未成年\" end unless age \u003e= 18 p \"未成年\" end p \"未成年\" unless age \u003e= 18 if .. else .. age = 22 if age \u003e= 18 p \"已成年\" else p \"未成年\" end p (age \u003e= 18 ) ? \"已成年\" : \"未成年\" if age == 18 p \"已成年，剛滿 18\" elsif age \u003e 18 p \"已成年\" else p \"未成年\" end case .. when .. age = 18 case age when 1...18 p \"未成年\" else p \"已成年\" end 列外處理 def bmi_calc(height, weight) begin weight / (height * height) rescue \"輸入數字有誤\" end end p bmi_calc(0, 80) 小貼士 在 ruby 裡面只有這兩個東西是假的，其餘為真 萬物皆物件 true false nil 都是物件 ",
-  "wordCount" : "162",
+  "articleBody": "等號 a = 10 b = \"10\" c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age \u003e= 18 p \"已成年\" end p \"已成年\" if age \u003e= 18 unless age = 12 if not age \u003e= 18 p \"未成年\" end unless age \u003e= 18 p \"未成年\" end p \"未成年\" unless age \u003e= 18 if .. else .. elsif 為什麼少一個 e https://twitter.com/yukihiro_matz/status/989061019287900162\nage = 22 if age \u003e= 18 p \"已成年\" else p \"未成年\" end p (age \u003e= 18 ) ? \"已成年\" : \"未成年\" if age == 18 p \"已成年，剛滿 18\" elsif age \u003e 18 p \"已成年\" else p \"未成年\" end case .. when .. age = 18 case age when 1...18 p \"未成年\" else p \"已成年\" end 列外處理 def bmi_calc(height, weight) begin weight / (height * height) rescue \"輸入數字有誤\" end end p bmi_calc(0, 80) 小貼士 在 ruby 裡面只有這兩個東西是假的，其餘為真 萬物皆物件 true false nil 都是物件 ",
+  "wordCount" : "166",
   "inLanguage": "en",
   "datePublished": "2022-06-13T12:23:01+08:00",
   "dateModified": "2022-06-13T12:23:01+08:00",
@@ -207,6 +207,7 @@ end
 
 p &#34;未成年&#34; unless age &gt;= 18
 </code></pre><h2 id="if--else-">if .. else ..<a hidden class="anchor" aria-hidden="true" href="#if--else-">#</a></h2>
+<p>elsif 為什麼少一個 e <a href="https://twitter.com/yukihiro_matz/status/989061019287900162">https://twitter.com/yukihiro_matz/status/989061019287900162</a></p>
 <pre tabindex="0"><code>age = 22
 if age &gt;= 18
   p &#34;已成年&#34;

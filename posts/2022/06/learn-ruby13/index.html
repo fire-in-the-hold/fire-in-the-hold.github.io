@@ -60,8 +60,8 @@
 <meta property="og:description" content="一個 class class Fund def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts &#34;order ##{id}&#34; end end class Fund &lt; Pool def initialize(name) @name = name puts &#34;new Fund #{@name}&#34; end def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new &#34;a16z&#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-13T10:34:01&#43;08:00" />
-<meta property="article:modified_time" content="2022-06-13T10:34:01&#43;08:00" />
+<meta property="article:published_time" content="2022-06-13T16:20:01&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-13T16:20:01&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="學習 Ruby 123 - 13 物件導向"/>
@@ -101,8 +101,8 @@
   "articleBody": "一個 class class Fund def wallet (id) puts \"wallet ##{id}\" end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts \"order ##{id}\" end end class Fund \u003c Pool def initialize(name) @name = name puts \"new Fund #{@name}\" end def wallet (id) puts \"wallet ##{id}\" end end a16z = Fund.new \"a16z\" # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self.total puts '$100000' end def amount puts '$100000' end end Fund.total # 印出 $100000 Fund.amount # 抱錯 實體變數 class Fund def initialize ( name ) @name = name end def name # getter @name end def name=(new_name) # setter @name = new_name end end a16z = Fund.new('a16z') puts a16z.name # 印出 a16z puts a16z.name = \"Andreessen Horowitz\" # 印出 Andreessen Horowitz puts a16z.name = \"Andreessen Horowitz / a16z\" # 印出 Andreessen Horowitz / a16z puts a16z.name=(\"A16z \") # 印出 A16z 可以使用 attr_reader 與 attr_writer 簡化 getter 與 setter 寫法\nclass Fund attr_reader :name attr_writer :name def initialize ( name ) @name = name end end a16z = Fund.new('a16z') puts a16z.name # 印出 a16z puts a16z.name = \"Andreessen Horowitz\" # 印出 Andreessen Horowitz puts a16z.name = \"Andreessen Horowitz / a16z\" # 印出 Andreessen Horowitz / a16z puts a16z.name=(\"A16z \") # 印出 A16z 類別變數 存在於該類別中，比方你 new 多個 Fund 出來，你可以計算有多少個 Fund 被 new 出來\nclass Fund @@count = 0 def initialize () @@count += 1 end def self.counter @@count end end 5.times { Fund.new } p Fund.counter # 印出 5 開放類別 ruby 特有的，會將兩個相同 class 進行融合，所以兩個呼叫都不會報錯\nclass Say def hello puts \"hello\" end end class Say def world puts \"world\" end end blog = Say.new blog.hello # 印出 hello blog.world # 印出 world 開放類別範例 可以將原本的類別在融合一些功能上去\nclass Integer alias :old_plus :+ # 別名 def +(n) p \"Hi\" self.old_plus(n) end end p 1 + 2 # 印出 hi 3 class String def say_hello \"Hello, #{self}\" end end puts \"world\".say_hello # 印出 Hello, world 存取控制 預設都是 public 方法，所以 Pool Wallet 是公開方法 當看到 private 之後，都會為私有變數，所以 Order aaa bbb 都是私有方法\nclass Fund def pool puts 'Pool' end def wallet # 呼叫私有分法，請直接呼叫，不能使用 self.aaa aaa end private def order puts 'Order' end def aaa puts 'Hello' end def bbb end end a16z = Fund.new # 公開方法可以呼叫 a16z.pool # 私有方法不可以呼叫 ! a16z.order # 可以透過 send + 符號 偷偷呼叫 私有方法 a16z.send(:order) # 會印出 Hello a16z.wallet 存取控制2 protected 他介於 public 與 private 中間，同一個類別內或是同一個 package，或是繼承它的子類別可以自由取用，但如果不是的話則不可存取。\nclass Fund def pool puts order puts self.order end protected def order puts 'Order' end end a16z = Fund.new # 公開方法可以呼叫，且會印出兩個 Order a16z.pool # 無法呼叫 a16z.order 小貼士 一些很瞎的設計，都是 Ruby 的哲學之一，比方 private 不這麽 private ",
   "wordCount" : "427",
   "inLanguage": "en",
-  "datePublished": "2022-06-13T10:34:01+08:00",
-  "dateModified": "2022-06-13T10:34:01+08:00",
+  "datePublished": "2022-06-13T16:20:01+08:00",
+  "dateModified": "2022-06-13T16:20:01+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/"
@@ -175,7 +175,7 @@
     <h1 class="post-title">
       學習 Ruby 123 - 13 物件導向
     </h1>
-    <div class="post-meta"><span title='2022-06-13 10:34:01 +0800 CST'>June 13, 2022</span>
+    <div class="post-meta"><span title='2022-06-13 16:20:01 +0800 CST'>June 13, 2022</span>
 
 </div>
   </header> 

@@ -102,7 +102,7 @@
     "ROR 123"
   ],
   "articleBody": "Ruby on Rails 他是一個透過 Ruby 建立的 Web server，使用 ROR 前，請先裝上 nodejs\n# 安裝指定版本 ROR $ gem install rails -v 6.1.6 # 建立一個新專案 $ rails new hello-project # 建立一個指定版本 ROR 專案 $ rails _6.1.6_ new hello-project # 可跳過，安裝套件 $ bundle install # 可跳過，可能要先安裝 nodejs 然後 yarn 過安裝套件 $ rails webpacker:install # 啟動伺服器 $ rails server $ rails s # 這是縮寫 rvm 操作 # 安裝 rvm $ curl -L get.rvm.io | bash -s stable # rvm 安裝 ruby $ rvm install \"ruby-2.6.8\" # rvm 版本查看 $ rvm list known 使用 mongodb gemfile 新增 gem \"mongoid\"\n# gem install $ bundle install # 建立連線資料 檔案在 config/mongoid.yml $ rails g mongoid:config 第一個應用 建立一個 table ，並且他會順便建立好一些新增修改刪除與頁面 http://127.0.0.1:3000/articles\n# 如果型態為 string 可以審略 $ rails g scaffold article name:string content:text Running via Spring preloader in process 60378 invoke mongoid create app/models/article.rb invoke test_unit create test/models/article_test.rb create test/fixtures/articles.yml invoke resource_route route resources :articles invoke scaffold_controller create app/controllers/articles_controller.rb invoke erb create app/views/articles create app/views/articles/index.html.erb create app/views/articles/edit.html.erb create app/views/articles/show.html.erb create app/views/articles/new.html.erb create app/views/articles/_form.html.erb invoke resource_route invoke test_unit create test/controllers/articles_controller_test.rb create test/system/articles_test.rb invoke helper create app/helpers/articles_helper.rb invoke test_unit invoke jbuilder create app/views/articles/index.json.jbuilder create app/views/articles/show.json.jbuilder create app/views/articles/_article.json.jbuilder invoke assets invoke scss create app/assets/stylesheets/articles.scss invoke scss create app/assets/stylesheets/scaffolds.scss db 查詢 # 進到介面 $ rails c # 他會自己產生查詢語句 \u003e Article.first MONGODB | localhost:27019 req:36 | ror_hello_project_development.find | SUCCEEDED | 0.002s =\u003e #",
-  "wordCount" : "245",
+  "wordCount" : "293",
   "inLanguage": "en",
   "datePublished": "2022-06-14T01:34:01+08:00",
   "dateModified": "2022-06-14T01:34:01+08:00",
@@ -266,11 +266,27 @@ MONGODB | localhost:27019 req:36 | ror_hello_project_development.find | SUCCEEDE
  =&gt; #&lt;Article _id: 62a78b27edc508ec3f27381a, created_at: 2022-06-13 19:08:23 UTC, updated_at: 2022-06-13 19:08:23 UTC, name: &#34;awa&#34;, content: &#34;asas&#34;&gt;
 
 &gt; Article.first.name
+</code></pre><h2 id="rails-指令">rails 指令<a hidden class="anchor" aria-hidden="true" href="#rails-指令">#</a></h2>
+<pre tabindex="0"><code># 啟動 server
+$ rails s
+
+# 進到 console
+$ rails c
+
+# 產生
+$ rails g ...
+$ rails g scaffold [table] ...
+$ rails g controller [name]
+
+# 列出路徑對照表
+$ rails routes
 </code></pre><h2 id="小貼士">小貼士<a hidden class="anchor" aria-hidden="true" href="#小貼士">#</a></h2>
 <ul>
 <li>Gem ROR <a href="https://rubygems.org/gems/rails/versions/4.2.6?locale=zh-TW">https://rubygems.org/gems/rails/versions/4.2.6?locale=zh-TW</a></li>
-<li>ROR 官方手冊 <a href="https://guides.rubyonrails.org/index.html">https://guides.rubyonrails.org/index.html</a></li>
+<li>ROR 官方手冊 英文 <a href="https://guides.rubyonrails.org/index.html">https://guides.rubyonrails.org/index.html</a></li>
 <li>Active Record Validations <a href="https://guides.rubyonrails.org/active_record_validations.html">https://guides.rubyonrails.org/active_record_validations.html</a></li>
+<li>ROR 官方手冊 中文 <a href="https://rails.ruby.tw/">https://rails.ruby.tw/</a></li>
+<li>為你自己學 Ruby on Rails，可以看一下 Rails 入門 <a href="https://railsbook.tw/">https://railsbook.tw/</a></li>
 </ul>
 
 

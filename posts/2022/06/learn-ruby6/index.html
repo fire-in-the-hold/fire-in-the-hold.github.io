@@ -5,13 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>學習 Ruby 123 - 4 迴圈與迭代 | Fire int the hold Blog</title>
+<title>學習 Ruby 123 - 6 流程與邏輯控制 | Fire int the hold Blog</title>
 <meta name="keywords" content="Ruby 123">
-<meta name="description" content="For 迴圈 list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;] for item in list puts item end while 迴圈 x = 0 while x &lt; 10 puts x x &#43;= 1 end until 迴圈 與 while 成立條件相反，為 while not
-x = 0 while x &gt; 10 puts x x &#43;= 1 end loop 迴圈 使用 break 跳脫迴圈
-x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 break 跳脫迴圈">
+<meta name="description" content="等號 a = 10 b = &#34;10&#34; c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age &gt;= 18 p &#34;已成年&#34; end p &#34;已成年&#34; if age &gt;= 18 unless age = 12 if not age &gt;= 18 p &#34;未成年&#34; end unless age &gt;= 18 p &#34;未成年&#34; end p &#34;未成年&#34; unless age &gt;= 18 if .">
 <meta name="author" content="">
-<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/">
+<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -58,20 +56,16 @@ x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 brea
         }
 
     </style>
-</noscript><meta property="og:title" content="學習 Ruby 123 - 4 迴圈與迭代" />
-<meta property="og:description" content="For 迴圈 list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;] for item in list puts item end while 迴圈 x = 0 while x &lt; 10 puts x x &#43;= 1 end until 迴圈 與 while 成立條件相反，為 while not
-x = 0 while x &gt; 10 puts x x &#43;= 1 end loop 迴圈 使用 break 跳脫迴圈
-x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 break 跳脫迴圈" />
+</noscript><meta property="og:title" content="學習 Ruby 123 - 6 流程與邏輯控制" />
+<meta property="og:description" content="等號 a = 10 b = &#34;10&#34; c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age &gt;= 18 p &#34;已成年&#34; end p &#34;已成年&#34; if age &gt;= 18 unless age = 12 if not age &gt;= 18 p &#34;未成年&#34; end unless age &gt;= 18 p &#34;未成年&#34; end p &#34;未成年&#34; unless age &gt;= 18 if ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-13T10:58:01&#43;08:00" />
-<meta property="article:modified_time" content="2022-06-13T10:58:01&#43;08:00" />
+<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-13T12:23:01&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-13T12:23:01&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="學習 Ruby 123 - 4 迴圈與迭代"/>
-<meta name="twitter:description" content="For 迴圈 list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;] for item in list puts item end while 迴圈 x = 0 while x &lt; 10 puts x x &#43;= 1 end until 迴圈 與 while 成立條件相反，為 while not
-x = 0 while x &gt; 10 puts x x &#43;= 1 end loop 迴圈 使用 break 跳脫迴圈
-x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 break 跳脫迴圈"/>
+<meta name="twitter:title" content="學習 Ruby 123 - 6 流程與邏輯控制"/>
+<meta name="twitter:description" content="等號 a = 10 b = &#34;10&#34; c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age &gt;= 18 p &#34;已成年&#34; end p &#34;已成年&#34; if age &gt;= 18 unless age = 12 if not age &gt;= 18 p &#34;未成年&#34; end unless age &gt;= 18 p &#34;未成年&#34; end p &#34;未成年&#34; unless age &gt;= 18 if ."/>
 
 
 <script type="application/ld+json">
@@ -88,8 +82,8 @@ x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 brea
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "學習 Ruby 123 - 4 迴圈與迭代",
-      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/"
+      "name": "學習 Ruby 123 - 6 流程與邏輯控制",
+      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/"
     }
   ]
 }
@@ -98,20 +92,20 @@ x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 brea
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "學習 Ruby 123 - 4 迴圈與迭代",
-  "name": "學習 Ruby 123 - 4 迴圈與迭代",
-  "description": "For 迴圈 list = [\u0026#34;apple\u0026#34;, \u0026#34;banana\u0026#34;, \u0026#34;cat\u0026#34;] for item in list puts item end while 迴圈 x = 0 while x \u0026lt; 10 puts x x += 1 end until 迴圈 與 while 成立條件相反，為 while not\nx = 0 while x \u0026gt; 10 puts x x += 1 end loop 迴圈 使用 break 跳脫迴圈\nx = 0 loop do puts x x += 1 break if x \u0026gt; 10 end method 迴圈 使用 break 跳脫迴圈",
+  "headline": "學習 Ruby 123 - 6 流程與邏輯控制",
+  "name": "學習 Ruby 123 - 6 流程與邏輯控制",
+  "description": "等號 a = 10 b = \u0026#34;10\u0026#34; c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age \u0026gt;= 18 p \u0026#34;已成年\u0026#34; end p \u0026#34;已成年\u0026#34; if age \u0026gt;= 18 unless age = 12 if not age \u0026gt;= 18 p \u0026#34;未成年\u0026#34; end unless age \u0026gt;= 18 p \u0026#34;未成年\u0026#34; end p \u0026#34;未成年\u0026#34; unless age \u0026gt;= 18 if .",
   "keywords": [
     "Ruby 123"
   ],
-  "articleBody": "For 迴圈 list = [\"apple\", \"banana\", \"cat\"] for item in list puts item end while 迴圈 x = 0 while x \u003c 10 puts x x += 1 end until 迴圈 與 while 成立條件相反，為 while not\nx = 0 while x \u003e 10 puts x x += 1 end loop 迴圈 使用 break 跳脫迴圈\nx = 0 loop do puts x x += 1 break if x \u003e 10 end method 迴圈 使用 break 跳脫迴圈\n10.times do puts \"Fire\" end 1.upto(10) do |i| puts \"Fire, #{i}\" end 10.downto(10) do |i| puts \"Fire, #{i}\" end list = [\"apple\", \"banana\", \"cat\"] list.each do |item| puts item end list = [\"apple\", \"banana\", \"cat\"] list.each.with_index do |item, i| puts \"#{item} #{i}\" end 小貼士 無\n",
-  "wordCount" : "120",
+  "articleBody": "等號 a = 10 b = \"10\" c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age \u003e= 18 p \"已成年\" end p \"已成年\" if age \u003e= 18 unless age = 12 if not age \u003e= 18 p \"未成年\" end unless age \u003e= 18 p \"未成年\" end p \"未成年\" unless age \u003e= 18 if .. else .. age = 22 if age \u003e= 18 p \"已成年\" else p \"未成年\" end p (age \u003e= 18 ) ? \"已成年\" : \"未成年\" if age == 18 p \"已成年，剛滿 18\" elsif age \u003e 18 p \"已成年\" else p \"未成年\" end case .. when .. age = 18 case age when 1...18 p \"未成年\" else p \"已成年\" end 列外處理 def bmi_calc(height, weight) begin weight / (height * height) rescue \"輸入數字有誤\" end end p bmi_calc(0, 80) 小貼士 在 ruby 裡面只有這兩個東西是假的，其餘為真 萬物皆物件 true false nil 都是物件 ",
+  "wordCount" : "162",
   "inLanguage": "en",
-  "datePublished": "2022-06-13T10:58:01+08:00",
-  "dateModified": "2022-06-13T10:58:01+08:00",
+  "datePublished": "2022-06-13T12:23:01+08:00",
+  "dateModified": "2022-06-13T12:23:01+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/"
+    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/"
   },
   "publisher": {
     "@type": "Organization",
@@ -179,64 +173,80 @@ x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 brea
   <header class="post-header">
     
     <h1 class="post-title">
-      學習 Ruby 123 - 4 迴圈與迭代
+      學習 Ruby 123 - 6 流程與邏輯控制
     </h1>
-    <div class="post-meta"><span title='2022-06-13 10:58:01 +0800 CST'>June 13, 2022</span>
+    <div class="post-meta"><span title='2022-06-13 12:23:01 +0800 CST'>June 13, 2022</span>
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="for-迴圈">For 迴圈<a hidden class="anchor" aria-hidden="true" href="#for-迴圈">#</a></h2>
-<pre tabindex="0"><code>list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;]
-for item in list
-  puts item
-end
-</code></pre><h2 id="while-迴圈">while 迴圈<a hidden class="anchor" aria-hidden="true" href="#while-迴圈">#</a></h2>
-<pre tabindex="0"><code>x = 0
-while x &lt; 10
-  puts x
-  x += 1
-end
-</code></pre><h2 id="until-迴圈">until 迴圈<a hidden class="anchor" aria-hidden="true" href="#until-迴圈">#</a></h2>
-<p>與 while 成立條件相反，為 while not</p>
-<pre tabindex="0"><code>x = 0
-while x &gt; 10
-  puts x
-  x += 1
-end
-</code></pre><h2 id="loop-迴圈">loop 迴圈<a hidden class="anchor" aria-hidden="true" href="#loop-迴圈">#</a></h2>
-<p>使用 break 跳脫迴圈</p>
-<pre tabindex="0"><code>x = 0
-loop do
-  puts x
-  x += 1
-  break if x &gt; 10
-end
-</code></pre><h2 id="method-迴圈">method 迴圈<a hidden class="anchor" aria-hidden="true" href="#method-迴圈">#</a></h2>
-<p>使用 break 跳脫迴圈</p>
-<pre tabindex="0"><code>10.times do
-  puts &#34;Fire&#34;
+  <div class="post-content"><h2 id="等號">等號<a hidden class="anchor" aria-hidden="true" href="#等號">#</a></h2>
+<pre tabindex="0"><code>a = 10
+b = &#34;10&#34;
+c = 10
+
+p a == b # false
+p a === b # false
+p a == c # true
+p a === c # true
+</code></pre><h2 id="if">if<a hidden class="anchor" aria-hidden="true" href="#if">#</a></h2>
+<pre tabindex="0"><code>age = 19
+if age &gt;= 18
+  p &#34;已成年&#34;
 end
 
-1.upto(10) do |i|
-  puts &#34;Fire, #{i}&#34;
+p &#34;已成年&#34; if age &gt;= 18
+</code></pre><h2 id="unless">unless<a hidden class="anchor" aria-hidden="true" href="#unless">#</a></h2>
+<pre tabindex="0"><code>age = 12
+if not age &gt;= 18
+  p &#34;未成年&#34;
 end
 
-10.downto(10) do |i|
-  puts &#34;Fire, #{i}&#34;
+unless age &gt;= 18
+  p &#34;未成年&#34;
 end
 
-list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;]
-
-list.each do |item|
-  puts item
+p &#34;未成年&#34; unless age &gt;= 18
+</code></pre><h2 id="if--else-">if .. else ..<a hidden class="anchor" aria-hidden="true" href="#if--else-">#</a></h2>
+<pre tabindex="0"><code>age = 22
+if age &gt;= 18
+  p &#34;已成年&#34;
+else 
+  p &#34;未成年&#34;
 end
 
-list = [&#34;apple&#34;, &#34;banana&#34;, &#34;cat&#34;]
-list.each.with_index do |item, i|
-  puts &#34;#{item} #{i}&#34;
+p (age &gt;= 18 ) ? &#34;已成年&#34; : &#34;未成年&#34;
+
+
+if age == 18
+  p &#34;已成年，剛滿 18&#34;
+elsif age &gt; 18
+  p &#34;已成年&#34;
+else 
+  p &#34;未成年&#34;
 end
+</code></pre><h2 id="case--when-">case .. when ..<a hidden class="anchor" aria-hidden="true" href="#case--when-">#</a></h2>
+<pre tabindex="0"><code>age = 18
+case age
+when 1...18
+ p &#34;未成年&#34;
+else
+ p &#34;已成年&#34;
+end
+</code></pre><h2 id="列外處理">列外處理<a hidden class="anchor" aria-hidden="true" href="#列外處理">#</a></h2>
+<pre tabindex="0"><code>def bmi_calc(height, weight)
+  begin
+    weight / (height * height)
+  rescue
+    &#34;輸入數字有誤&#34;
+  end
+end
+
+p bmi_calc(0, 80)
 </code></pre><h2 id="小貼士">小貼士<a hidden class="anchor" aria-hidden="true" href="#小貼士">#</a></h2>
-<p>無</p>
+<ul>
+<li>在 ruby 裡面只有這兩個東西是<code>假</code>的，其餘為<code>真</code></li>
+<li>萬物皆物件 <code>true</code> <code>false</code> <code>nil</code> 都是物件</li>
+</ul>
 
 
   </div>

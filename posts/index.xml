@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Fire int the hold Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 13 Jun 2022 17:55:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 01:34:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>學習 ROR 123 - 1 建立專案</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ror/</link>
+      <pubDate>Tue, 14 Jun 2022 01:34:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ror/</guid>
+      <description>Ruby on Rails 他是一個透過 Ruby 建立的 Web server，使用 ROR 前，請先裝上 nodejs
+# 安裝指定版本 ROR $ gem install rails -v 6.1.6 # 建立一個新專案 $ rails new hello-project # 建立一個指定版本 ROR 專案 $ rails _6.1.6_ new hello-project # 可跳過，安裝套件 $ bundle install # 可跳過，可能要先安裝 nodejs 然後 yarn 過安裝套件 $ rails webpacker:install # 啟動伺服器 $ rails server $ rails s # 這是縮寫 rvm 操作 # 安裝 rvm $ curl -L get.rvm.io | bash -s stable # rvm 安裝 ruby $ rvm install &amp;#34;ruby-2.</description>
+    </item>
+    
     <item>
       <title>學習 Ruby 123 - 14 module</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby14/</link>

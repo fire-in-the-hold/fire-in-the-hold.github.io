@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ROR 123 on Fire int the hold Blog</title>
+    <link>https://fire-in-the-hold.github.io/tags/ror-123/</link>
+    <description>Recent content in ROR 123 on Fire int the hold Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 14 Jun 2022 01:34:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/tags/ror-123/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>學習 ROR 123 - 1 建立專案</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ror/</link>
+      <pubDate>Tue, 14 Jun 2022 01:34:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ror/</guid>
+      <description>Ruby on Rails 他是一個透過 Ruby 建立的 Web server，使用 ROR 前，請先裝上 nodejs
+# 安裝指定版本 ROR $ gem install rails -v 6.1.6 # 建立一個新專案 $ rails new hello-project # 建立一個指定版本 ROR 專案 $ rails _6.1.6_ new hello-project # 可跳過，安裝套件 $ bundle install # 可跳過，可能要先安裝 nodejs 然後 yarn 過安裝套件 $ rails webpacker:install # 啟動伺服器 $ rails server $ rails s # 這是縮寫 rvm 操作 # 安裝 rvm $ curl -L get.rvm.io | bash -s stable # rvm 安裝 ruby $ rvm install &amp;#34;ruby-2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,15 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>學習 Ruby 123 - 1 Hello owrld | Fire int the hold Blog</title>
+<title>學習 Ruby 123 - 11 rake | Fire int the hold Blog</title>
 <meta name="keywords" content="Ruby 123">
-<meta name="description" content="Hello world $ ruby -e &#34;puts &#39;hello world&#39;&#34; 使用 irb (Interactive Ruby)
-$ irb &gt; puts &#39;Hello world&#39; 直接使用檔案
-$ ruby hello.rb 印出
-# 印出 hello world print &#34;hello world&#34; # 印出 hello world 後面有換行 puts &#34;hello world&#34; # 印出 &#34;hello world&#34; 包含雙引號，後面有換行 p &#34;hello world&#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
-安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.">
+<meta name="description" content="類似 makefile 檔案，用 ruby 寫的
+建立一個 rakefile 檔案
+rakefile
+desc &#34;這是一段描述&#34; task :send do puts &#39;send email&#39; sleep 2 puts &#39;send discord&#39; sleep 2 puts &#39;done&#39; end task :get_amount do puts &#34;amount $10000&#34; end desc &#34;取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end namespace :fund do desc &#34;從池子取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end end 可以執行 rake 指令
+$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # &#34;這是一段描述&#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done ">
 <meta name="author" content="">
-<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/">
+<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -60,24 +60,24 @@ $ ruby hello.rb 印出
         }
 
     </style>
-</noscript><meta property="og:title" content="學習 Ruby 123 - 1 Hello owrld" />
-<meta property="og:description" content="Hello world $ ruby -e &#34;puts &#39;hello world&#39;&#34; 使用 irb (Interactive Ruby)
-$ irb &gt; puts &#39;Hello world&#39; 直接使用檔案
-$ ruby hello.rb 印出
-# 印出 hello world print &#34;hello world&#34; # 印出 hello world 後面有換行 puts &#34;hello world&#34; # 印出 &#34;hello world&#34; 包含雙引號，後面有換行 p &#34;hello world&#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
-安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit." />
+</noscript><meta property="og:title" content="學習 Ruby 123 - 11 rake" />
+<meta property="og:description" content="類似 makefile 檔案，用 ruby 寫的
+建立一個 rakefile 檔案
+rakefile
+desc &#34;這是一段描述&#34; task :send do puts &#39;send email&#39; sleep 2 puts &#39;send discord&#39; sleep 2 puts &#39;done&#39; end task :get_amount do puts &#34;amount $10000&#34; end desc &#34;取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end namespace :fund do desc &#34;從池子取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end end 可以執行 rake 指令
+$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # &#34;這是一段描述&#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-13T01:34:01&#43;08:00" />
-<meta property="article:modified_time" content="2022-06-13T01:34:01&#43;08:00" />
+<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-13T15:06:01&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-13T15:06:01&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="學習 Ruby 123 - 1 Hello owrld"/>
-<meta name="twitter:description" content="Hello world $ ruby -e &#34;puts &#39;hello world&#39;&#34; 使用 irb (Interactive Ruby)
-$ irb &gt; puts &#39;Hello world&#39; 直接使用檔案
-$ ruby hello.rb 印出
-# 印出 hello world print &#34;hello world&#34; # 印出 hello world 後面有換行 puts &#34;hello world&#34; # 印出 &#34;hello world&#34; 包含雙引號，後面有換行 p &#34;hello world&#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
-安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit."/>
+<meta name="twitter:title" content="學習 Ruby 123 - 11 rake"/>
+<meta name="twitter:description" content="類似 makefile 檔案，用 ruby 寫的
+建立一個 rakefile 檔案
+rakefile
+desc &#34;這是一段描述&#34; task :send do puts &#39;send email&#39; sleep 2 puts &#39;send discord&#39; sleep 2 puts &#39;done&#39; end task :get_amount do puts &#34;amount $10000&#34; end desc &#34;取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end namespace :fund do desc &#34;從池子取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end end 可以執行 rake 指令
+$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # &#34;這是一段描述&#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done "/>
 
 
 <script type="application/ld+json">
@@ -94,8 +94,8 @@ $ ruby hello.rb 印出
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "學習 Ruby 123 - 1 Hello owrld",
-      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/"
+      "name": "學習 Ruby 123 - 11 rake",
+      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/"
     }
   ]
 }
@@ -104,20 +104,20 @@ $ ruby hello.rb 印出
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "學習 Ruby 123 - 1 Hello owrld",
-  "name": "學習 Ruby 123 - 1 Hello owrld",
-  "description": "Hello world $ ruby -e \u0026#34;puts \u0026#39;hello world\u0026#39;\u0026#34; 使用 irb (Interactive Ruby)\n$ irb \u0026gt; puts \u0026#39;Hello world\u0026#39; 直接使用檔案\n$ ruby hello.rb 印出\n# 印出 hello world print \u0026#34;hello world\u0026#34; # 印出 hello world 後面有換行 puts \u0026#34;hello world\u0026#34; # 印出 \u0026#34;hello world\u0026#34; 包含雙引號，後面有換行 p \u0026#34;hello world\u0026#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW\n安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.",
+  "headline": "學習 Ruby 123 - 11 rake",
+  "name": "學習 Ruby 123 - 11 rake",
+  "description": "類似 makefile 檔案，用 ruby 寫的\n建立一個 rakefile 檔案\nrakefile\ndesc \u0026#34;這是一段描述\u0026#34; task :send do puts \u0026#39;send email\u0026#39; sleep 2 puts \u0026#39;send discord\u0026#39; sleep 2 puts \u0026#39;done\u0026#39; end task :get_amount do puts \u0026#34;amount $10000\u0026#34; end desc \u0026#34;取得錢包\u0026#34; task :wallet =\u0026gt; :get_amount do puts \u0026#39;done\u0026#39; end namespace :fund do desc \u0026#34;從池子取得錢包\u0026#34; task :wallet =\u0026gt; :get_amount do puts \u0026#39;done\u0026#39; end end 可以執行 rake 指令\n$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # \u0026#34;這是一段描述\u0026#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done ",
   "keywords": [
     "Ruby 123"
   ],
-  "articleBody": "Hello world $ ruby -e \"puts 'hello world'\" 使用 irb (Interactive Ruby)\n$ irb \u003e puts 'Hello world' 直接使用檔案\n$ ruby hello.rb 印出\n# 印出 hello world print \"hello world\" # 印出 hello world 後面有換行 puts \"hello world\" # 印出 \"hello world\" 包含雙引號，後面有換行 p \"hello world\" 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW\n安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.com/\n",
-  "wordCount" : "71",
+  "articleBody": "類似 makefile 檔案，用 ruby 寫的\n建立一個 rakefile 檔案\nrakefile\ndesc \"這是一段描述\" task :send do puts 'send email' sleep 2 puts 'send discord' sleep 2 puts 'done' end task :get_amount do puts \"amount $10000\" end desc \"取得錢包\" task :wallet =\u003e :get_amount do puts 'done' end namespace :fund do desc \"從池子取得錢包\" task :wallet =\u003e :get_amount do puts 'done' end end 可以執行 rake 指令\n$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # \"這是一段描述\" rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done ",
+  "wordCount" : "103",
   "inLanguage": "en",
-  "datePublished": "2022-06-13T01:34:01+08:00",
-  "dateModified": "2022-06-13T01:34:01+08:00",
+  "datePublished": "2022-06-13T15:06:01+08:00",
+  "dateModified": "2022-06-13T15:06:01+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/"
+    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/"
   },
   "publisher": {
     "@type": "Organization",
@@ -185,47 +185,63 @@ $ ruby hello.rb 印出
   <header class="post-header">
     
     <h1 class="post-title">
-      學習 Ruby 123 - 1 Hello owrld
+      學習 Ruby 123 - 11 rake
     </h1>
-    <div class="post-meta"><span title='2022-06-13 01:34:01 +0800 CST'>June 13, 2022</span>
+    <div class="post-meta"><span title='2022-06-13 15:06:01 +0800 CST'>June 13, 2022</span>
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="hello-world">Hello world<a hidden class="anchor" aria-hidden="true" href="#hello-world">#</a></h2>
-<pre tabindex="0"><code>$ ruby -e &#34;puts &#39;hello world&#39;&#34;
-</code></pre><p>使用 irb (Interactive Ruby)</p>
-<pre tabindex="0"><code>$ irb
-&gt; puts &#39;Hello world&#39;
-</code></pre><p>直接使用檔案</p>
-<pre tabindex="0"><code>$ ruby hello.rb
-</code></pre><p>印出</p>
-<pre tabindex="0"><code># 印出 hello world
-print &#34;hello world&#34;
+  <div class="post-content"><p>類似 makefile 檔案，用 ruby 寫的</p>
+<p>建立一個 rakefile 檔案</p>
+<p>rakefile</p>
+<pre tabindex="0"><code>desc &#34;這是一段描述&#34;
+task :send do
+  puts &#39;send email&#39;
+  sleep 2
+  puts &#39;send discord&#39;
+  sleep 2
+  puts &#39;done&#39;
+end
 
-# 印出 hello world 後面有換行
-puts &#34;hello world&#34;
+task :get_amount do
+  puts &#34;amount $10000&#34;
+end
 
-# 印出 &#34;hello world&#34; 包含雙引號，後面有換行
-p &#34;hello world&#34;
-</code></pre><h2 id="註解">註解<a hidden class="anchor" aria-hidden="true" href="#註解">#</a></h2>
-<pre tabindex="0"><code># 單行註解
+desc &#34;取得錢包&#34;
+task :wallet =&gt; :get_amount do
+  puts &#39;done&#39;
+end
 
-=begin
-這是一個
-多行的
-註解
-=end
-</code></pre><h2 id="gem">Gem<a hidden class="anchor" aria-hidden="true" href="#gem">#</a></h2>
-<p>ruby 的套件管理工具
-<a href="https://rubygems.org/?locale=zh-TW">https://rubygems.org/?locale=zh-TW</a></p>
-<h3 id="安裝套件">安裝套件<a hidden class="anchor" aria-hidden="true" href="#安裝套件">#</a></h3>
-<pre tabindex="0"><code>$ gem install hello-world
-</code></pre><h3 id="查詢環境">查詢環境<a hidden class="anchor" aria-hidden="true" href="#查詢環境">#</a></h3>
-<pre tabindex="0"><code>$ gem env
-</code></pre><h2 id="可使用資源">可使用資源<a hidden class="anchor" aria-hidden="true" href="#可使用資源">#</a></h2>
-<p>線上直接執行 ruby
-<a href="https://replit.com/">https://replit.com/</a></p>
+namespace :fund do
+  desc &#34;從池子取得錢包&#34;
+  task :wallet =&gt; :get_amount do
+    puts &#39;done&#39;
+  end
+end
+</code></pre><p>可以執行 rake 指令</p>
+<pre tabindex="0"><code>$ cd ~/ruby_project
 
+$ ls
+./ rakefile
+
+$ rake -T
+rake fund:wallet  # 從池子取得錢包
+rake send # &#34;這是一段描述&#34;
+rake wallet  # 取得錢包
+
+$ rake send
+send email
+send discord
+done
+
+$ rake wallet
+amount $10000
+done
+
+$ rake fund:wallet
+amount $10000
+done
+</code></pre>
 
   </div>
 

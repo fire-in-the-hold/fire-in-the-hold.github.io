@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學習 Ruby 123 - 13 物件導向 | Fire int the hold Blog</title>
+<meta name="keywords" content="Ruby 123">
+<meta name="description" content="一個 class class Fund def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts &#34;order ##{id}&#34; end end class Fund &lt; Pool def initialize(name) @name = name puts &#34;new Fund #{@name}&#34; end def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new &#34;a16z&#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self.">
+<meta name="author" content="">
+<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://fire-in-the-hold.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fire-in-the-hold.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fire-in-the-hold.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://fire-in-the-hold.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://fire-in-the-hold.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="學習 Ruby 123 - 13 物件導向" />
+<meta property="og:description" content="一個 class class Fund def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts &#34;order ##{id}&#34; end end class Fund &lt; Pool def initialize(name) @name = name puts &#34;new Fund #{@name}&#34; end def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new &#34;a16z&#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-13T10:34:01&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-13T10:34:01&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學習 Ruby 123 - 13 物件導向"/>
+<meta name="twitter:description" content="一個 class class Fund def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts &#34;order ##{id}&#34; end end class Fund &lt; Pool def initialize(name) @name = name puts &#34;new Fund #{@name}&#34; end def wallet (id) puts &#34;wallet ##{id}&#34; end end a16z = Fund.new &#34;a16z&#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://fire-in-the-hold.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "學習 Ruby 123 - 13 物件導向",
+      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學習 Ruby 123 - 13 物件導向",
+  "name": "學習 Ruby 123 - 13 物件導向",
+  "description": "一個 class class Fund def wallet (id) puts \u0026#34;wallet ##{id}\u0026#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts \u0026#34;order ##{id}\u0026#34; end end class Fund \u0026lt; Pool def initialize(name) @name = name puts \u0026#34;new Fund #{@name}\u0026#34; end def wallet (id) puts \u0026#34;wallet ##{id}\u0026#34; end end a16z = Fund.new \u0026#34;a16z\u0026#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self.",
+  "keywords": [
+    "Ruby 123"
+  ],
+  "articleBody": "一個 class class Fund def wallet (id) puts \"wallet ##{id}\" end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts \"order ##{id}\" end end class Fund \u003c Pool def initialize(name) @name = name puts \"new Fund #{@name}\" end def wallet (id) puts \"wallet ##{id}\" end end a16z = Fund.new \"a16z\" # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self.total puts '$100000' end def amount puts '$100000' end end Fund.total # 印出 $100000 Fund.amount # 抱錯 實體變數 class Fund def initialize ( name ) @name = name end def name # getter @name end def name=(new_name) # setter @name = new_name end end a16z = Fund.new('a16z') puts a16z.name # 印出 a16z puts a16z.name = \"Andreessen Horowitz\" # 印出 Andreessen Horowitz puts a16z.name = \"Andreessen Horowitz / a16z\" # 印出 Andreessen Horowitz / a16z puts a16z.name=(\"A16z \") # 印出 A16z 可以使用 attr_reader 與 attr_writer 簡化 getter 與 setter 寫法\nclass Fund attr_reader :name attr_writer :name def initialize ( name ) @name = name end end a16z = Fund.new('a16z') puts a16z.name # 印出 a16z puts a16z.name = \"Andreessen Horowitz\" # 印出 Andreessen Horowitz puts a16z.name = \"Andreessen Horowitz / a16z\" # 印出 Andreessen Horowitz / a16z puts a16z.name=(\"A16z \") # 印出 A16z 類別變數 存在於該類別中，比方你 new 多個 Fund 出來，你可以計算有多少個 Fund 被 new 出來\nclass Fund @@count = 0 def initialize () @@count += 1 end def self.counter @@count end end 5.times { Fund.new } p Fund.counter # 印出 5 開放類別 ruby 特有的，會將兩個相同 class 進行融合，所以兩個呼叫都不會報錯\nclass Say def hello puts \"hello\" end end class Say def world puts \"world\" end end blog = Say.new blog.hello # 印出 hello blog.world # 印出 world 開放類別範例 可以將原本的類別在融合一些功能上去\nclass Integer alias :old_plus :+ # 別名 def +(n) p \"Hi\" self.old_plus(n) end end p 1 + 2 # 印出 hi 3 class String def say_hello \"Hello, #{self}\" end end puts \"world\".say_hello # 印出 Hello, world 存取控制 預設都是 public 方法，所以 Pool Wallet 是公開方法 當看到 private 之後，都會為私有變數，所以 Order aaa bbb 都是私有方法\nclass Fund def pool puts 'Pool' end def wallet # 呼叫私有分法，請直接呼叫，不能使用 self.aaa aaa end private def order puts 'Order' end def aaa puts 'Hello' end def bbb end end a16z = Fund.new # 公開方法可以呼叫 a16z.pool # 私有方法不可以呼叫 ! a16z.order # 可以透過 send + 符號 偷偷呼叫 私有方法 a16z.send(:order) # 會印出 Hello a16z.wallet 存取控制2 protected 他介於 public 與 private 中間，同一個類別內或是同一個 package，或是繼承它的子類別可以自由取用，但如果不是的話則不可存取。\nclass Fund def pool puts order puts self.order end protected def order puts 'Order' end end a16z = Fund.new # 公開方法可以呼叫，且會印出兩個 Order a16z.pool # 無法呼叫 a16z.order 小貼士 一些很瞎的設計，都是 Ruby 的哲學之一，比方 private 不這麽 private ",
+  "wordCount" : "427",
+  "inLanguage": "en",
+  "datePublished": "2022-06-13T10:34:01+08:00",
+  "dateModified": "2022-06-13T10:34:01+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fire int the hold Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fire-in-the-hold.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://fire-in-the-hold.github.io" accesskey="h" title="Fire int the hold Blog (Alt + H)">Fire int the hold Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://fire-in-the-hold.github.io/post/" title="">
+                    <span></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      學習 Ruby 123 - 13 物件導向
+    </h1>
+    <div class="post-meta"><span title='2022-06-13 10:34:01 +0800 CST'>June 13, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="一個-class">一個 class<a hidden class="anchor" aria-hidden="true" href="#一個-class">#</a></h2>
+<pre tabindex="0"><code>class Fund
+  def wallet (id)
+    puts &#34;wallet ##{id}&#34;
+  end
+end
+
+a16z = Fund.new
+a16z.wallet 2134543 # 印出 wallet #2134543
+</code></pre><h2 id="initialize-與-繼承">initialize 與 繼承<a hidden class="anchor" aria-hidden="true" href="#initialize-與-繼承">#</a></h2>
+<pre tabindex="0"><code>class Pool
+  def order (id)
+    puts &#34;order ##{id}&#34;
+  end
+end
+class Fund &lt; Pool
+  def initialize(name)
+    @name = name
+    puts &#34;new Fund #{@name}&#34;
+  end
+  def wallet (id)
+    puts &#34;wallet ##{id}&#34;
+  end
+end
+
+a16z = Fund.new &#34;a16z&#34; # 印出 new Fund
+a16z.order 2134543 # 印出 order #2134543
+</code></pre><h2 id="類別方法">類別方法<a hidden class="anchor" aria-hidden="true" href="#類別方法">#</a></h2>
+<pre tabindex="0"><code>class Fund
+  def self.total
+    puts &#39;$100000&#39;
+  end
+
+  def amount
+    puts &#39;$100000&#39;
+  end
+end
+
+Fund.total # 印出 $100000
+Fund.amount # 抱錯
+</code></pre><h2 id="實體變數">實體變數<a hidden class="anchor" aria-hidden="true" href="#實體變數">#</a></h2>
+<pre tabindex="0"><code>class Fund
+  def initialize ( name )
+    @name = name
+  end
+  
+  def name # getter
+    @name
+  end
+
+  def name=(new_name) # setter
+    @name = new_name
+  end
+end
+
+a16z = Fund.new(&#39;a16z&#39;)
+puts a16z.name # 印出 a16z
+puts a16z.name = &#34;Andreessen Horowitz&#34; # 印出 Andreessen Horowitz
+puts a16z.name = &#34;Andreessen Horowitz / a16z&#34; # 印出 Andreessen Horowitz / a16z
+puts a16z.name=(&#34;A16z &#34;) # 印出 A16z
+</code></pre><p>可以使用 <code>attr_reader</code> 與 <code>attr_writer</code> 簡化 getter 與 setter 寫法</p>
+<pre tabindex="0"><code>class Fund
+  attr_reader :name
+  attr_writer :name
+  def initialize ( name )
+    @name = name
+  end
+end
+
+a16z = Fund.new(&#39;a16z&#39;)
+puts a16z.name # 印出 a16z
+puts a16z.name = &#34;Andreessen Horowitz&#34; # 印出 Andreessen Horowitz
+puts a16z.name = &#34;Andreessen Horowitz / a16z&#34; # 印出 Andreessen Horowitz / a16z
+puts a16z.name=(&#34;A16z &#34;) # 印出 A16z
+</code></pre><h2 id="類別變數">類別變數<a hidden class="anchor" aria-hidden="true" href="#類別變數">#</a></h2>
+<p>存在於該類別中，比方你 new 多個 Fund 出來，你可以計算有多少個 Fund 被 new 出來</p>
+<pre tabindex="0"><code>class Fund
+  @@count = 0
+  def initialize ()
+    @@count += 1
+  end
+  
+  def self.counter
+    @@count
+  end
+end
+
+5.times {
+  Fund.new
+}
+p Fund.counter # 印出 5
+</code></pre><h2 id="開放類別">開放類別<a hidden class="anchor" aria-hidden="true" href="#開放類別">#</a></h2>
+<p>ruby 特有的，會將兩個相同 class 進行融合，所以兩個呼叫都不會報錯</p>
+<pre tabindex="0"><code>class Say
+  def hello
+    puts &#34;hello&#34;
+  end
+end
+class Say
+  def world
+    puts &#34;world&#34;
+  end
+end
+
+blog = Say.new
+blog.hello # 印出 hello
+blog.world # 印出 world
+</code></pre><h2 id="開放類別範例">開放類別範例<a hidden class="anchor" aria-hidden="true" href="#開放類別範例">#</a></h2>
+<p>可以將原本的類別在融合一些功能上去</p>
+<pre tabindex="0"><code>class Integer
+  alias :old_plus :+ # 別名
+  def +(n)
+    p &#34;Hi&#34;
+    self.old_plus(n)
+  end
+end
+
+p 1 + 2 # 印出 hi 3
+
+
+class String
+  def say_hello
+    &#34;Hello, #{self}&#34;
+  end
+end
+
+puts &#34;world&#34;.say_hello # 印出 Hello, world
+</code></pre><h2 id="存取控制">存取控制<a hidden class="anchor" aria-hidden="true" href="#存取控制">#</a></h2>
+<p>預設都是 public 方法，所以 <code>Pool</code> <code>Wallet</code> 是公開方法
+當看到 private 之後，都會為私有變數，所以 <code>Order</code> <code>aaa</code> <code>bbb</code> 都是私有方法</p>
+<pre tabindex="0"><code>class Fund
+  def pool
+    puts &#39;Pool&#39;
+  end
+
+  def wallet
+    # 呼叫私有分法，請直接呼叫，不能使用 self.aaa 
+    aaa
+  end
+
+  private
+  def order
+    puts &#39;Order&#39;
+  end
+
+  def aaa
+    puts &#39;Hello&#39;
+  end
+
+  def bbb
+  end
+end
+
+a16z = Fund.new
+
+# 公開方法可以呼叫
+a16z.pool
+
+# 私有方法不可以呼叫 !
+a16z.order
+
+# 可以透過 send + 符號 偷偷呼叫 私有方法
+a16z.send(:order)
+
+# 會印出 Hello
+a16z.wallet
+</code></pre><h2 id="存取控制2">存取控制2<a hidden class="anchor" aria-hidden="true" href="#存取控制2">#</a></h2>
+<p>protected 他介於 public 與 private 中間，同一個類別內或是同一個 package，或是繼承它的子類別可以自由取用，但如果不是的話則不可存取。</p>
+<pre tabindex="0"><code>class Fund
+  def pool
+    puts order
+    puts self.order
+  end
+
+  protected
+  def order
+    puts &#39;Order&#39;
+  end
+end
+
+a16z = Fund.new
+
+# 公開方法可以呼叫，且會印出兩個 Order
+a16z.pool
+
+# 無法呼叫
+a16z.order
+</code></pre><h2 id="小貼士">小貼士<a hidden class="anchor" aria-hidden="true" href="#小貼士">#</a></h2>
+<ul>
+<li>一些很瞎的設計，都是 Ruby 的哲學之一，比方 private 不這麽 private</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://fire-in-the-hold.github.io/tags/ruby-123/">Ruby 123</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://fire-in-the-hold.github.io">Fire int the hold Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

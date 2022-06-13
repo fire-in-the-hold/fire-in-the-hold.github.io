@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>如何建置 Hugo 部落格 | Fire int the hold Blog</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="Hugo">
 <meta name="description" content="這是一個使用 Hugo 快速建立的部落格，他能協助你快速的建立一個部落格網站，並且可將 Code 放置於 Github.io 免費的伺服器空間。這種網站好處就是，免伺服器費用，可以高度自定化，對於 SEO 而言也非常友善。
 要先知道的東西 Hugo 本次的主角，一系列工具可以讓你快速產生程式碼。
 Markdown 是一個可以透過文字的方式，做出各種排版的一種語法格式。
@@ -123,7 +123,7 @@ VSCode 一個功能特別多的文字編輯器
   "name": "如何建置 Hugo 部落格",
   "description": "這是一個使用 Hugo 快速建立的部落格，他能協助你快速的建立一個部落格網站，並且可將 Code 放置於 Github.io 免費的伺服器空間。這種網站好處就是，免伺服器費用，可以高度自定化，對於 SEO 而言也非常友善。\n要先知道的東西 Hugo 本次的主角，一系列工具可以讓你快速產生程式碼。\nMarkdown 是一個可以透過文字的方式，做出各種排版的一種語法格式。\nGit 版本控制工具，讓你可以對於文字作版本控制。\nVersion control 就是你文字編輯過程都有一個紀錄，只要處理一個檔案即可。可以隨時切回以前的版本，而不用把桌面放的滿滿的備份檔案。\nGithub 存放 Version control 所有歷史資料的服務，另外也提供一些免費靜態網站空間，讓你可以存放 HTML。\nHomebrew Macos 套件管理的套件管理\nVSCode 一個功能特別多的文字編輯器\n環境建置 本篇以 Macos 開始\n打開 Terminal 輸入以下指令安裝 Homebrew /bin/bash -c \u0026#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\u0026#34; 輸入以下指令安裝 Hugo brew install hugo 輸入指令建立一個 Hugo 檔案資料夾，裡面會包含一些 Hugo 的程式碼 hugo new site ${你的資料夾名稱} 到 https://themes.gohugo.io/ 挑選一個喜歡的模板下載，下載後解壓縮，將整個資料夾，放到上一步所產生資料夾內的 ${你的資料夾名稱}/themes/ archetypes/: 文章預設配置 content/: 放文章的地方 data/: (空的) layout/: 網站一些的配置，包含頁首頁尾那些 static/: 放圖片、CSS等檔案的地方 themes/: 你使用的模板配置 \u0026lt;- 將模板放置於此 config.",
   "keywords": [
-    
+    "Hugo"
   ],
   "articleBody": "這是一個使用 Hugo 快速建立的部落格，他能協助你快速的建立一個部落格網站，並且可將 Code 放置於 Github.io 免費的伺服器空間。這種網站好處就是，免伺服器費用，可以高度自定化，對於 SEO 而言也非常友善。\n要先知道的東西 Hugo 本次的主角，一系列工具可以讓你快速產生程式碼。\nMarkdown 是一個可以透過文字的方式，做出各種排版的一種語法格式。\nGit 版本控制工具，讓你可以對於文字作版本控制。\nVersion control 就是你文字編輯過程都有一個紀錄，只要處理一個檔案即可。可以隨時切回以前的版本，而不用把桌面放的滿滿的備份檔案。\nGithub 存放 Version control 所有歷史資料的服務，另外也提供一些免費靜態網站空間，讓你可以存放 HTML。\nHomebrew Macos 套件管理的套件管理\nVSCode 一個功能特別多的文字編輯器\n環境建置 本篇以 Macos 開始\n打開 Terminal 輸入以下指令安裝 Homebrew /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" 輸入以下指令安裝 Hugo brew install hugo 輸入指令建立一個 Hugo 檔案資料夾，裡面會包含一些 Hugo 的程式碼 hugo new site ${你的資料夾名稱} 到 https://themes.gohugo.io/ 挑選一個喜歡的模板下載，下載後解壓縮，將整個資料夾，放到上一步所產生資料夾內的 ${你的資料夾名稱}/themes/ archetypes/: 文章預設配置 content/: 放文章的地方 data/: (空的) layout/: 網站一些的配置，包含頁首頁尾那些 static/: 放圖片、CSS等檔案的地方 themes/: 你使用的模板配置 \u003c- 將模板放置於此 config.toml: Hugo網站的核心配置檔 public/: Hugo 產生的網頁檔案，可以上傳至 Github 就變成你的部落格 變更 config.toml 設定，裡面加上以下設定，套上模板，定義你的網頁路徑，另外上面也有一些資訊你可以跟著修改，比方部落格名稱等 theme = \"${你模板名稱}\" [menu] [[menu.main]] identifier = \"post\" url = \"/post/\" # title will be shown when you hover on this menu link title = \"\" weight = 1 Github 操作 建立一個 Blog Repo 設定為公開，名稱為 ${github account}.github.com\n建立一個 Blog Core Repo 存放你的 Hugo 程式碼\n將 Hugo 這個資料夾丟上 Blog Core，並且建立 .gitignore 裡面寫著 /public/ 代表這個檔案裡下的 public 資料夾不要上傳，另外 git clone Blog Repo 到這個資料夾底下取名為 public\n如何操作 建立一篇貼文\n使用 hugo server 在自己電腦上查看\n使用 hugo 產生網頁檔案\n上傳 public 的檔案到 Github 上即可\n一些指令 啟動 Hugo 伺服器可以快速預覽\nhugo serve 創建一篇部落格貼文\nhugo new content/posts/2021/${English post name}.md 一些參考資源 更多詳細的設定 https://www.jianshu.com/p/c5297a8bb1e7 後記 其實我在寫的時候想，我到底要寫多細呀，很多東西對我來說已經很基本，但每個東西要攤開來說，蠻累的。所以主要應針對 Hugo 做說介紹就好，剩下 Git / Github / VSCode / 版本控制什麼什麼之類的，請自行分別理解。或者有機會在一篇篇寫下來說這些事情。\n",
   "wordCount" : "186",
@@ -314,6 +314,7 @@ VSCode 一個功能特別多的文字編輯器
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://fire-in-the-hold.github.io/tags/hugo/">Hugo</a></li>
     </ul>
   </footer>
 </article>

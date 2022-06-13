@@ -6,7 +6,66 @@
     <description>Recent content in Posts on Fire int the hold Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 13 Jun 2022 13:28:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jun 2022 17:55:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>學習 Ruby 123 - 14 模組</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby14/</link>
+      <pubDate>Mon, 13 Jun 2022 17:55:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby14/</guid>
+      <description>include 實體方法 module Flyable def fly puts &amp;#34;我會飛&amp;#34; end end class Cat include Flyable end tom = Cat.new tom.fly # 印出 我會飛 extend 類別方法 module Flyable def fly puts &amp;#34;我會飛&amp;#34; end end class Cat extend Flyable end Cat.fly # 印出 我會飛 多模組 雙冒號 :: 為呼叫模組的該類別
+module A class Cat end end module B class Cat end end tom = A::Cat.new jerry = B::Cat.new 小貼士 模組沒有繼承功能 模組無法實體化 </description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 12 Block</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/</link>
+      <pubDate>Mon, 13 Jun 2022 16:26:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/</guid>
+      <description>用 do .. end 與 { } 這兩個結果是相等的
+# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作
+def say_hello puts &amp;#34;哈囉&amp;#34; end say_hello { puts &amp;#34;你好&amp;#34; } puts &amp;#34;安妮哈搜呦&amp;#34; 印出順序
+哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block
+def say_hello puts &amp;#34;哈囉&amp;#34; yield puts &amp;#34;空妮基挖&amp;#34; end say_hello { puts &amp;#34;你好&amp;#34; } puts &amp;#34;安妮哈搜呦&amp;#34; 印出順序</description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 11 rake</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/</link>
+      <pubDate>Mon, 13 Jun 2022 15:06:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/</guid>
+      <description>類似 makefile 檔案，用 ruby 寫的
+建立一個 rakefile 檔案
+rakefile
+desc &amp;#34;這是一段描述&amp;#34; task :send do puts &amp;#39;send email&amp;#39; sleep 2 puts &amp;#39;send discord&amp;#39; sleep 2 puts &amp;#39;done&amp;#39; end task :get_amount do puts &amp;#34;amount $10000&amp;#34; end desc &amp;#34;取得錢包&amp;#34; task :wallet =&amp;gt; :get_amount do puts &amp;#39;done&amp;#39; end namespace :fund do desc &amp;#34;從池子取得錢包&amp;#34; task :wallet =&amp;gt; :get_amount do puts &amp;#39;done&amp;#39; end end 可以執行 rake 指令
+$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # &amp;#34;這是一段描述&amp;#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done </description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 10 模組化</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby10/</link>
+      <pubDate>Mon, 13 Jun 2022 14:50:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby10/</guid>
+      <description>calc.rb
+def bmi_calc(height, weight) weight / ( height * height) end p &amp;#39;hello&amp;#39; require main.rb
+require &amp;#39;./calc.rb&amp;#39; require &amp;#39;./calc.rb&amp;#39; p bmi_calc 1.8, 60 會印出
+&amp;#34;hello&amp;#34; &amp;#34;hello&amp;#34; 18.51851851851852 18.51851851851852 load main.rb
+load &amp;#39;./calc.rb&amp;#39; load &amp;#39;./calc.rb&amp;#39; p bmi_calc 1.8, 60 會印出
+&amp;#34;hello&amp;#34; 18.51851851851852 18.51851851851852 小貼士 require 不管載入幾次，第一次載入後，就重複使用了，所以只會載入一次 load 載入 n 次，真的會讀入 n 次 </description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 9 方法</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby9/</link>
+      <pubDate>Mon, 13 Jun 2022 14:06:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby9/</guid>
+      <description>方法 def say_hello(someone = &amp;#34;nil&amp;#34;) puts &amp;#34;hello, #{someone}&amp;#34; end say_hello(&amp;#39;Fire&amp;#39;) # hello, Fire say_hello &amp;#39;Fire&amp;#39; # hello, Fire say_hello # hello, nil 寫法 def say_profile(name , parma) puts &amp;#34;#{name} #{parma}&amp;#34; end # 最原始寫法 say_profile(&amp;#39;Fire&amp;#39;, {age:22, heigh: 200}) # Fire {:age=&amp;gt;22, :heigh=&amp;gt;200} # 常見寫法 say_profile &amp;#39;Fire&amp;#39;, age:22, heigh: 200 # Fire {:age=&amp;gt;22, :heigh=&amp;gt;200} # 如果最後一個為 hash 可以省略括弧 say_profile &amp;#39;Fire&amp;#39;, {age:22, heigh: 200} # Fire {:age=&amp;gt;22, :heigh=&amp;gt;200} 宣告順序 def age return 22 end p age # 22 age = 18 def age return 22 end p age # 18 age = 18 p age # 18 回傳 # puts 回傳為 nil def say_hello(someone = &amp;#34;nil&amp;#34;) puts &amp;#34;hello, #{someone}&amp;#34; end p say_hello(&amp;#39;Fire&amp;#39;) # 印出 nil # 回傳為 &amp;#34;hello, #{someone}&amp;#34; def say_hello(someone = &amp;#34;nil&amp;#34;) return &amp;#34;hello, #{someone}&amp;#34; end p say_hello(&amp;#39;Fire&amp;#39;) # &amp;#34;hello, Fire&amp;#34; # 預設會回傳最後一個變數 def say_hello(someone = &amp;#34;nil&amp;#34;) &amp;#34;hello, #{someone}&amp;#34; end p say_hello(&amp;#39;Fire&amp;#39;) # &amp;#34;hello, Fire&amp;#34; 問號與驚嘆號 這是一個不成文的開發規定</description>
+    </item>
+    
     <item>
       <title>學習 Ruby 123 - 8 符號</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/</link>
@@ -14,7 +73,7 @@
       
       <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/</guid>
       <description>符號類似 2 &amp;quot;Hello&amp;quot; 這種，他是他沒辦法變更的，比方你沒辦法把 2 = 3，因為 2 不是一個變數，這個稱為符號
-方法 p &amp;#34;name&amp;#34;.to_sym # 印出 :name p &amp;#34;name&amp;#34;.intern # 印出 :name p :name.to_s # 印出 &amp;#34;name&amp;#34; p :name.id2name # 印出 &amp;#34;name&amp;#34; :name = &amp;#34;Fire&amp;#34; # 錯誤 SyntaxError %s(name) # 轉成符號 # 像字串一樣的操作 :hello.length # 5 :hello.upcase # :HELLO :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &amp;#34;name&amp;#34;.object_id # 2626737700 p &amp;#34;name&amp;#34;.object_id # 2491749860 # 可以冷凍字串，類似符號效果 p &amp;#34;name&amp;#34;.</description>
+方法 p &amp;#34;name&amp;#34;.to_sym # 印出 :name p &amp;#34;name&amp;#34;.intern # 印出 :name p :name.to_s # 印出 &amp;#34;name&amp;#34; p :name.id2name # 印出 &amp;#34;name&amp;#34; p :name = &amp;#34;Fire&amp;#34; # 錯誤 p %s(name) # 轉成符號 :name # 像字串一樣的操作 p :hello.length # 5 p :hello.upcase # :HELLO p :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &amp;#34;name&amp;#34;.object_id # 2626737700 p &amp;#34;name&amp;#34;.</description>
     </item>
     
     <item>
@@ -66,6 +125,15 @@ x = 0 loop do puts x x += 1 break if x &amp;gt; 10 end method 迴圈 使用 brea
     </item>
     
     <item>
+      <title>學習 Ruby 123 - 13 物件導向</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/</link>
+      <pubDate>Mon, 13 Jun 2022 10:34:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby13/</guid>
+      <description>一個 class class Fund def wallet (id) puts &amp;#34;wallet ##{id}&amp;#34; end end a16z = Fund.new a16z.wallet 2134543 # 印出 wallet #2134543 initialize 與 繼承 class Pool def order (id) puts &amp;#34;order ##{id}&amp;#34; end end class Fund &amp;lt; Pool def initialize(name) @name = name puts &amp;#34;new Fund #{@name}&amp;#34; end def wallet (id) puts &amp;#34;wallet ##{id}&amp;#34; end end a16z = Fund.new &amp;#34;a16z&amp;#34; # 印出 new Fund a16z.order 2134543 # 印出 order #2134543 類別方法 class Fund def self.</description>
+    </item>
+    
+    <item>
       <title>學習 Ruby 123 - 2 常數 變數</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby2/</link>
       <pubDate>Mon, 13 Jun 2022 10:34:01 +0800</pubDate>
@@ -80,11 +148,11 @@ x = 0 loop do puts x x += 1 break if x &amp;gt; 10 end method 迴圈 使用 brea
       <pubDate>Mon, 13 Jun 2022 01:34:01 +0800</pubDate>
       
       <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/</guid>
-      <description>Hello world $ruby -e &amp;#39;puts &amp;#39;hello world&amp;#39; 使用 irb (Interactive Ruby)
+      <description>Hello world $ ruby -e &amp;#34;puts &amp;#39;hello world&amp;#39;&amp;#34; 使用 irb (Interactive Ruby)
 $ irb &amp;gt; puts &amp;#39;Hello world&amp;#39; 直接使用檔案
 $ ruby hello.rb 印出
 # 印出 hello world print &amp;#34;hello world&amp;#34; # 印出 hello world 後面有換行 puts &amp;#34;hello world&amp;#34; # 印出 &amp;#34;hello world&amp;#34; 包含雙引號，後面有換行 p &amp;#34;hello world&amp;#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
-安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.com/</description>
+安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.</description>
     </item>
     
     <item>

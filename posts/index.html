@@ -138,12 +138,86 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>學習 Ruby 123 - 14 模組
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>include 實體方法 module Flyable def fly puts &#34;我會飛&#34; end end class Cat include Flyable end tom = Cat.new tom.fly # 印出 我會飛 extend 類別方法 module Flyable def fly puts &#34;我會飛&#34; end end class Cat extend Flyable end Cat.fly # 印出 我會飛 多模組 雙冒號 :: 為呼叫模組的該類別
+module A class Cat end end module B class Cat end end tom = A::Cat.new jerry = B::Cat.new 小貼士 模組沒有繼承功能 模組無法實體化 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 17:55:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 14 模組" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby14/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 12 Block
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>用 do .. end 與 { } 這兩個結果是相等的
+# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作
+def say_hello puts &#34;哈囉&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序
+哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block
+def say_hello puts &#34;哈囉&#34; yield puts &#34;空妮基挖&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 16:26:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 12 Block" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 11 rake
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>類似 makefile 檔案，用 ruby 寫的
+建立一個 rakefile 檔案
+rakefile
+desc &#34;這是一段描述&#34; task :send do puts &#39;send email&#39; sleep 2 puts &#39;send discord&#39; sleep 2 puts &#39;done&#39; end task :get_amount do puts &#34;amount $10000&#34; end desc &#34;取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end namespace :fund do desc &#34;從池子取得錢包&#34; task :wallet =&gt; :get_amount do puts &#39;done&#39; end end 可以執行 rake 指令
+$ cd ~/ruby_project $ ls ./ rakefile $ rake -T rake fund:wallet # 從池子取得錢包 rake send # &#34;這是一段描述&#34; rake wallet # 取得錢包 $ rake send send email send discord done $ rake wallet amount $10000 done $ rake fund:wallet amount $10000 done </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 15:06:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 11 rake" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby11/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 10 模組化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>calc.rb
+def bmi_calc(height, weight) weight / ( height * height) end p &#39;hello&#39; require main.rb
+require &#39;./calc.rb&#39; require &#39;./calc.rb&#39; p bmi_calc 1.8, 60 會印出
+&#34;hello&#34; &#34;hello&#34; 18.51851851851852 18.51851851851852 load main.rb
+load &#39;./calc.rb&#39; load &#39;./calc.rb&#39; p bmi_calc 1.8, 60 會印出
+&#34;hello&#34; 18.51851851851852 18.51851851851852 小貼士 require 不管載入幾次，第一次載入後，就重複使用了，所以只會載入一次 load 載入 n 次，真的會讀入 n 次 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 14:50:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 10 模組化" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby10/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 9 方法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>方法 def say_hello(someone = &#34;nil&#34;) puts &#34;hello, #{someone}&#34; end say_hello(&#39;Fire&#39;) # hello, Fire say_hello &#39;Fire&#39; # hello, Fire say_hello # hello, nil 寫法 def say_profile(name , parma) puts &#34;#{name} #{parma}&#34; end # 最原始寫法 say_profile(&#39;Fire&#39;, {age:22, heigh: 200}) # Fire {:age=&gt;22, :heigh=&gt;200} # 常見寫法 say_profile &#39;Fire&#39;, age:22, heigh: 200 # Fire {:age=&gt;22, :heigh=&gt;200} # 如果最後一個為 hash 可以省略括弧 say_profile &#39;Fire&#39;, {age:22, heigh: 200} # Fire {:age=&gt;22, :heigh=&gt;200} 宣告順序 def age return 22 end p age # 22 age = 18 def age return 22 end p age # 18 age = 18 p age # 18 回傳 # puts 回傳為 nil def say_hello(someone = &#34;nil&#34;) puts &#34;hello, #{someone}&#34; end p say_hello(&#39;Fire&#39;) # 印出 nil # 回傳為 &#34;hello, #{someone}&#34; def say_hello(someone = &#34;nil&#34;) return &#34;hello, #{someone}&#34; end p say_hello(&#39;Fire&#39;) # &#34;hello, Fire&#34; # 預設會回傳最後一個變數 def say_hello(someone = &#34;nil&#34;) &#34;hello, #{someone}&#34; end p say_hello(&#39;Fire&#39;) # &#34;hello, Fire&#34; 問號與驚嘆號 這是一個不成文的開發規定...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 14:06:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 9 方法" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>學習 Ruby 123 - 8 符號
     </h2>
   </header>
   <div class="entry-content">
     <p>符號類似 2 &#34;Hello&#34; 這種，他是他沒辦法變更的，比方你沒辦法把 2 = 3，因為 2 不是一個變數，這個稱為符號
-方法 p &#34;name&#34;.to_sym # 印出 :name p &#34;name&#34;.intern # 印出 :name p :name.to_s # 印出 &#34;name&#34; p :name.id2name # 印出 &#34;name&#34; :name = &#34;Fire&#34; # 錯誤 SyntaxError %s(name) # 轉成符號 # 像字串一樣的操作 :hello.length # 5 :hello.upcase # :HELLO :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &#34;name&#34;.object_id # 2626737700 p &#34;name&#34;.object_id # 2491749860 # 可以冷凍字串，類似符號效果 p &#34;name&#34;....</p>
+方法 p &#34;name&#34;.to_sym # 印出 :name p &#34;name&#34;.intern # 印出 :name p :name.to_s # 印出 &#34;name&#34; p :name.id2name # 印出 &#34;name&#34; p :name = &#34;Fire&#34; # 錯誤 p %s(name) # 轉成符號 :name # 像字串一樣的操作 p :hello.length # 5 p :hello.upcase # :HELLO p :hello[0] # h 記憶體位置 # 不管印幾次同一個符號位置相同 p :name.object_id # 88028 p :name.object_id # 88028 # 每次印出來不相同 p &#34;name&#34;.object_id # 2626737700 p &#34;name&#34;....</p>
   </div>
   <footer class="entry-footer"><span title='2022-06-13 13:28:01 +0800 CST'>June 13, 2022</span></footer>
   <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 8 符號" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby8/"></a>
@@ -199,83 +273,11 @@ x = 0 loop do puts x x &#43;= 1 break if x &gt; 10 end method 迴圈 使用 brea
   <footer class="entry-footer"><span title='2022-06-13 10:58:01 +0800 CST'>June 13, 2022</span></footer>
   <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 4 迴圈與迭代" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>學習 Ruby 123 - 3 字串與數字
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>字串 name = &#34;Fire&#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts &#34;hi, #{name} earn $#{profit} profit today&#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts &#39;hi, #{name} earn $#{profit} profit today&#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-13 10:40:01 +0800 CST'>June 13, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 3 字串與數字" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>學習 Ruby 123 - 2 常數 變數
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>變數種類 # 區域變數 message = 123 x, y, z = [1, 2, 3] # x = 1, y = 2, z = 3 a &#43;= 123 # a = a &#43; 123 a ||= 2 # a = a || 2 # 全域變數 $message = 123 # 實體變數 @message = 123 # 類別變數 @@message = 123 小貼士 Ruby 常數是可以變動的 </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-13 10:34:01 +0800 CST'>June 13, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 2 常數 變數" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>學習 Ruby 123 - 1 Hello owrld
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Hello world $ruby -e &#39;puts &#39;hello world&#39; 使用 irb (Interactive Ruby)
-$ irb &gt; puts &#39;Hello world&#39; 直接使用檔案
-$ ruby hello.rb 印出
-# 印出 hello world print &#34;hello world&#34; # 印出 hello world 後面有換行 puts &#34;hello world&#34; # 印出 &#34;hello world&#34; 包含雙引號，後面有換行 p &#34;hello world&#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
-安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.com/</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-13 01:34:01 +0800 CST'>June 13, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 1 Hello owrld" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Manager Macbook Touch Bar
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Macbook touch bar 是我經常誤碰的東西，經常無意間的跳出，尤其我的手經常停於 ESC 附近。所以我需要將觸控的左上角觸控無效化。
-BetterTouchTool 可以使用 BetterTouchTool 管你的 touch，他的客製化非常多，可以輕鬆地將上面當作一個小螢幕一樣，監控一些數值。
-擁有豐富的支援，你可以透過 shell 執行各種 nodejs / python 等等，去抓取你要的數值。
-你可以設定各種手勢，以及各種對應的操控。比方五指一起滑是鎖定螢幕，在觸控板上畫一個圓圈做什麼做什麼。
-Pock 或者使用 Pock 來管理，但功能簡單，要開發一個應用也比較麻煩，必須學習 macos 原生應用才能撰寫。</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-10 11:22:26 +0800 CST'>June 10, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to Manager Macbook Touch Bar" href="https://fire-in-the-hold.github.io/posts/2022/06/manager-macbook-touch-bar/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>如何建置 Hugo 部落格
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是一個使用 Hugo 快速建立的部落格，他能協助你快速的建立一個部落格網站，並且可將 Code 放置於 Github.io 免費的伺服器空間。這種網站好處就是，免伺服器費用，可以高度自定化，對於 SEO 而言也非常友善。
-要先知道的東西 Hugo 本次的主角，一系列工具可以讓你快速產生程式碼。
-Markdown 是一個可以透過文字的方式，做出各種排版的一種語法格式。
-Git 版本控制工具，讓你可以對於文字作版本控制。
-Version control 就是你文字編輯過程都有一個紀錄，只要處理一個檔案即可。可以隨時切回以前的版本，而不用把桌面放的滿滿的備份檔案。
-Github 存放 Version control 所有歷史資料的服務，另外也提供一些免費靜態網站空間，讓你可以存放 HTML。
-Homebrew Macos 套件管理的套件管理
-VSCode 一個功能特別多的文字編輯器
-環境建置 本篇以 Macos 開始
-打開 Terminal 輸入以下指令安裝 Homebrew /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 輸入以下指令安裝 Hugo brew install hugo 輸入指令建立一個 Hugo 檔案資料夾，裡面會包含一些 Hugo 的程式碼 hugo new site ${你的資料夾名稱} 到 https://themes.gohugo.io/ 挑選一個喜歡的模板下載，下載後解壓縮，將整個資料夾，放到上一步所產生資料夾內的 ${你的資料夾名稱}/themes/ archetypes/: 文章預設配置 content/: 放文章的地方 data/: (空的) layout/: 網站一些的配置，包含頁首頁尾那些 static/: 放圖片、CSS等檔案的地方 themes/: 你使用的模板配置 &lt;- 將模板放置於此 config....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-04 06:43:10 +0800 CST'>June 4, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to 如何建置 Hugo 部落格" href="https://fire-in-the-hold.github.io/posts/2022/04/how-to-create-hugo-blog/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://fire-in-the-hold.github.io/posts/page/2/">Next »</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

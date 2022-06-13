@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>學習 Ruby 123 - 12 Block | Fire int the hold Blog</title>
+<meta name="keywords" content="Ruby 123">
+<meta name="description" content="用 do .. end 與 { } 這兩個結果是相等的
+# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作
+def say_hello puts &#34;哈囉&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序
+哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block
+def say_hello puts &#34;哈囉&#34; yield puts &#34;空妮基挖&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序">
+<meta name="author" content="">
+<link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://fire-in-the-hold.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fire-in-the-hold.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fire-in-the-hold.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://fire-in-the-hold.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://fire-in-the-hold.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="學習 Ruby 123 - 12 Block" />
+<meta property="og:description" content="用 do .. end 與 { } 這兩個結果是相等的
+# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作
+def say_hello puts &#34;哈囉&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序
+哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block
+def say_hello puts &#34;哈囉&#34; yield puts &#34;空妮基挖&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-13T16:26:01&#43;08:00" />
+<meta property="article:modified_time" content="2022-06-13T16:26:01&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="學習 Ruby 123 - 12 Block"/>
+<meta name="twitter:description" content="用 do .. end 與 { } 這兩個結果是相等的
+# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作
+def say_hello puts &#34;哈囉&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序
+哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block
+def say_hello puts &#34;哈囉&#34; yield puts &#34;空妮基挖&#34; end say_hello { puts &#34;你好&#34; } puts &#34;安妮哈搜呦&#34; 印出順序"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://fire-in-the-hold.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "學習 Ruby 123 - 12 Block",
+      "item": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "學習 Ruby 123 - 12 Block",
+  "name": "學習 Ruby 123 - 12 Block",
+  "description": "用 do .. end 與 { } 這兩個結果是相等的\n# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作\ndef say_hello puts \u0026#34;哈囉\u0026#34; end say_hello { puts \u0026#34;你好\u0026#34; } puts \u0026#34;安妮哈搜呦\u0026#34; 印出順序\n哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block\ndef say_hello puts \u0026#34;哈囉\u0026#34; yield puts \u0026#34;空妮基挖\u0026#34; end say_hello { puts \u0026#34;你好\u0026#34; } puts \u0026#34;安妮哈搜呦\u0026#34; 印出順序",
+  "keywords": [
+    "Ruby 123"
+  ],
+  "articleBody": "用 do .. end 與 { } 這兩個結果是相等的\n# 使用 do .. end 5.times do |i| puts i end # 使用 {} 5.times { |i| puts i } 控制權 1 後面 block (你好) 沒有特別呼叫，不會動作\ndef say_hello puts \"哈囉\" end say_hello { puts \"你好\" } puts \"安妮哈搜呦\" 印出順序\n哈囉 安妮哈搜呦 控制權 2 透過 yield 呼叫後面的 block\ndef say_hello puts \"哈囉\" yield puts \"空妮基挖\" end say_hello { puts \"你好\" } puts \"安妮哈搜呦\" 印出順序\n哈囉 你好 空妮基挖 安妮哈搜呦 控制權 3 yield 可以帶入值，傳給 block 使用，而 block 也可以回傳最後結果\ndef say_hello puts \"哈囉\" calc = yield 3, 5 puts \"空妮基挖 #{calc}\" end say_hello { |i, j| puts \"你好 #{i} #{j}\" i + j } puts \"安妮哈搜呦\" 印出順序\n哈囉 你好 3 5 空妮基挖 8 安妮哈搜呦 控制權 4 可以透過 « 將值傳送給變數\ndef select_odd (list) result = [] list.each do |n| result \u003c\u003c n if yield(n) end result end # 印出 [1, 3] p select_odd([1, 2, 3, 4]) { |i| i.odd? } 控制權 5 可以透過 block_given? 去判斷是否有 block，如果沒有判斷，也沒有 block 卻用 yield 呼叫會報錯\ndef say_hello yield if block_given? end # 什麼都沒有 say_hello # 印出 hello say_hello { puts \"hello\" } 控制權 6 { } 與 do … end 其實還是有差別的， { } 的結合率較強，執行優先度會較大\nlist = [1, 2, 3, 4, 5] # 印出 [2, 4, 6, 8, 10] p list.map { |item| item * 2 } # 印出 # p list.map do |item| item * 2 end Proc 與 Lambda 注意這些寫法\nadd_two_proc = Proc.new { |n| n + 2} p add_two_proc.call(1, 2, 3) # 印出 3 ，後面參數被忽略 p add_two_proc.call(1) # 印出 3 p add_two_proc[1] # 印出 3 p add_two_proc.(1) # 印出 3 p add_two_proc.===(1) # 印出 3 add_two_lambda = lambda { |n| n + 2} add_two_lambda2 = -\u003e (n) { n + 2} p add_two_lambda.call(1) # 印出 3 p add_two_lambda.call(1, 2, 3) # 錯誤，引數數量錯誤 ",
+  "wordCount" : "297",
+  "inLanguage": "en",
+  "datePublished": "2022-06-13T16:26:01+08:00",
+  "dateModified": "2022-06-13T16:26:01+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby12/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fire int the hold Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fire-in-the-hold.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://fire-in-the-hold.github.io" accesskey="h" title="Fire int the hold Blog (Alt + H)">Fire int the hold Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://fire-in-the-hold.github.io/post/" title="">
+                    <span></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      學習 Ruby 123 - 12 Block
+    </h1>
+    <div class="post-meta"><span title='2022-06-13 16:26:01 +0800 CST'>June 13, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="用-do--end-與--">用 do .. end 與 { }<a hidden class="anchor" aria-hidden="true" href="#用-do--end-與--">#</a></h2>
+<p>這兩個結果是相等的</p>
+<pre tabindex="0"><code># 使用 do .. end
+5.times do |i|
+ puts i
+end
+
+# 使用 {}
+5.times { |i|
+  puts i
+}
+</code></pre><h2 id="控制權-1">控制權 1<a hidden class="anchor" aria-hidden="true" href="#控制權-1">#</a></h2>
+<p>後面 block (你好) 沒有特別呼叫，不會動作</p>
+<pre tabindex="0"><code>def say_hello
+  puts &#34;哈囉&#34;
+end
+
+say_hello {
+  puts &#34;你好&#34;
+}
+
+puts &#34;安妮哈搜呦&#34;
+</code></pre><p>印出順序</p>
+<pre tabindex="0"><code>哈囉
+安妮哈搜呦
+</code></pre><h2 id="控制權-2">控制權 2<a hidden class="anchor" aria-hidden="true" href="#控制權-2">#</a></h2>
+<p>透過 yield 呼叫後面的 block</p>
+<pre tabindex="0"><code>def say_hello
+  puts &#34;哈囉&#34;
+  yield
+  puts &#34;空妮基挖&#34;
+end
+
+say_hello {
+  puts &#34;你好&#34;
+}
+
+puts &#34;安妮哈搜呦&#34;
+</code></pre><p>印出順序</p>
+<pre tabindex="0"><code>哈囉
+你好
+空妮基挖
+安妮哈搜呦
+</code></pre><h2 id="控制權-3">控制權 3<a hidden class="anchor" aria-hidden="true" href="#控制權-3">#</a></h2>
+<p>yield 可以帶入值，傳給 block 使用，而 block 也可以回傳最後結果</p>
+<pre tabindex="0"><code>def say_hello
+  puts &#34;哈囉&#34;
+  calc = yield 3, 5
+  puts &#34;空妮基挖 #{calc}&#34;
+end
+
+say_hello { |i, j|
+  puts &#34;你好 #{i} #{j}&#34;
+  i + j
+}
+
+puts &#34;安妮哈搜呦&#34;
+</code></pre><p>印出順序</p>
+<pre tabindex="0"><code>哈囉
+你好 3 5
+空妮基挖 8
+安妮哈搜呦
+</code></pre><h2 id="控制權-4">控制權 4<a hidden class="anchor" aria-hidden="true" href="#控制權-4">#</a></h2>
+<p>可以透過 &laquo; 將值傳送給變數</p>
+<pre tabindex="0"><code>def select_odd (list)
+  result = []
+  list.each do |n|
+    result &lt;&lt; n if yield(n)
+  end
+  result
+end
+
+# 印出 [1, 3]
+p select_odd([1, 2, 3, 4]) { |i|
+  i.odd?
+}
+</code></pre><h2 id="控制權-5">控制權 5<a hidden class="anchor" aria-hidden="true" href="#控制權-5">#</a></h2>
+<p>可以透過 block_given? 去判斷是否有 block，如果沒有判斷，也沒有 block 卻用 yield 呼叫會報錯</p>
+<pre tabindex="0"><code>def say_hello
+  yield if block_given?
+end
+
+# 什麼都沒有
+say_hello 
+
+# 印出 hello
+say_hello {
+  puts &#34;hello&#34;
+}
+</code></pre><h2 id="控制權-6">控制權 6<a hidden class="anchor" aria-hidden="true" href="#控制權-6">#</a></h2>
+<p>{ } 與 do &hellip; end 其實還是有差別的， { } 的結合率較強，執行優先度會較大</p>
+<pre tabindex="0"><code>list = [1, 2, 3, 4, 5]
+
+# 印出 [2, 4, 6, 8, 10]
+p list.map { |item|
+  item * 2
+}
+
+# 印出 #&lt;Enumerator: [1, 2, 3, 4, 5]:map&gt;
+p list.map do |item|
+  item * 2
+end
+</code></pre><h2 id="proc-與-lambda">Proc 與 Lambda<a hidden class="anchor" aria-hidden="true" href="#proc-與-lambda">#</a></h2>
+<p>注意這些寫法</p>
+<pre tabindex="0"><code>add_two_proc = Proc.new { |n| n + 2}
+p add_two_proc.call(1, 2, 3) # 印出 3 ，後面參數被忽略
+p add_two_proc.call(1) # 印出 3 
+p add_two_proc[1] # 印出 3 
+p add_two_proc.(1) # 印出 3 
+p add_two_proc.===(1) # 印出 3 
+
+add_two_lambda = lambda { |n| n + 2}
+add_two_lambda2 = -&gt; (n) { n + 2}
+p add_two_lambda.call(1) # 印出 3
+p add_two_lambda.call(1, 2, 3) # 錯誤，引數數量錯誤
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://fire-in-the-hold.github.io/tags/ruby-123/">Ruby 123</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://fire-in-the-hold.github.io">Fire int the hold Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>學習 Ruby 123 - 3 字串與數字 | Fire int the hold Blog</title>
 <meta name="keywords" content="Ruby 123">
-<meta name="description" content="字串 name = &#34;Fire&#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts &#34;hi, #{name} made $#{profit} profit today&#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts &#39;hi, #{name} made $#{profit} profit today&#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.">
+<meta name="description" content="字串 name = &#34;Fire&#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts &#34;hi, #{name} earn $#{profit} profit today&#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts &#39;hi, #{name} earn $#{profit} profit today&#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.">
 <meta name="author" content="">
 <link rel="canonical" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
@@ -57,7 +57,7 @@
 
     </style>
 </noscript><meta property="og:title" content="學習 Ruby 123 - 3 字串與數字" />
-<meta property="og:description" content="字串 name = &#34;Fire&#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts &#34;hi, #{name} made $#{profit} profit today&#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts &#39;hi, #{name} made $#{profit} profit today&#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0." />
+<meta property="og:description" content="字串 name = &#34;Fire&#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts &#34;hi, #{name} earn $#{profit} profit today&#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts &#39;hi, #{name} earn $#{profit} profit today&#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-13T10:40:01&#43;08:00" />
@@ -65,7 +65,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="學習 Ruby 123 - 3 字串與數字"/>
-<meta name="twitter:description" content="字串 name = &#34;Fire&#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts &#34;hi, #{name} made $#{profit} profit today&#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts &#39;hi, #{name} made $#{profit} profit today&#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0."/>
+<meta name="twitter:description" content="字串 name = &#34;Fire&#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts &#34;hi, #{name} earn $#{profit} profit today&#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts &#39;hi, #{name} earn $#{profit} profit today&#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0."/>
 
 
 <script type="application/ld+json">
@@ -94,11 +94,11 @@
   "@type": "BlogPosting",
   "headline": "學習 Ruby 123 - 3 字串與數字",
   "name": "學習 Ruby 123 - 3 字串與數字",
-  "description": "字串 name = \u0026#34;Fire\u0026#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts \u0026#34;hi, #{name} made $#{profit} profit today\u0026#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts \u0026#39;hi, #{name} made $#{profit} profit today\u0026#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.",
+  "description": "字串 name = \u0026#34;Fire\u0026#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts \u0026#34;hi, #{name} earn $#{profit} profit today\u0026#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts \u0026#39;hi, #{name} earn $#{profit} profit today\u0026#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.",
   "keywords": [
     "Ruby 123"
   ],
-  "articleBody": "字串 name = \"Fire\" profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts \"hi, #{name} made $#{profit} profit today\" puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts 'hi, #{name} made $#{profit} profit today' puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.92.floor # 0 # 取整數，無條件進位 puts 0.12.ceil # 1 puts 0.92.ceil # 1 # 將浮點數轉乘整數 puts 0.12.to_i # 0 puts 0.92.to_i # 0 除數 # 整數除與整數會得到整數 puts 10/3 # 3 # 遇到小數，計算小數 puts 10.0/3 # 3.3333333333333335 puts 10/3.0 # 3.3333333333333335 puts 10.0/3.0 # 3.3333333333333335 小貼士 萬物皆物件，數字也是物件 ",
+  "articleBody": "字串 name = \"Fire\" profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts \"hi, #{name} earn $#{profit} profit today\" puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts 'hi, #{name} earn $#{profit} profit today' puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.92.floor # 0 # 取整數，無條件進位 puts 0.12.ceil # 1 puts 0.92.ceil # 1 # 將浮點數轉乘整數 puts 0.12.to_i # 0 puts 0.92.to_i # 0 除數 # 整數除與整數會得到整數 puts 10/3 # 3 # 遇到小數，計算小數 puts 10.0/3 # 3.3333333333333335 puts 10/3.0 # 3.3333333333333335 puts 10.0/3.0 # 3.3333333333333335 小貼士 萬物皆物件，數字也是物件 ",
   "wordCount" : "118",
   "inLanguage": "en",
   "datePublished": "2022-06-13T10:40:01+08:00",
@@ -181,17 +181,17 @@
   </header> 
   <div class="post-content"><h2 id="字串">字串<a hidden class="anchor" aria-hidden="true" href="#字串">#</a></h2>
 <pre tabindex="0"><code>name = &#34;Fire&#34;
-profit = 100000
+profit = 10000
 
 # 可以帶變數
-# 結果 Fire made $100000 profit today
-puts &#34;hi, #{name} made $#{profit} profit today&#34;
-puts %Q(hi, #{name} made $#{profit} profit today)
+# 結果 Fire earn $10000 profit today
+puts &#34;hi, #{name} earn $#{profit} profit today&#34;
+puts %Q(hi, #{name} earn $#{profit} profit today)
 
 # 不可以帶變數
-# 結果 hi, #{name} made $#{profit} profit today
-puts &#39;hi, #{name} made $#{profit} profit today&#39;
-puts %q(hi, #{name} made $#{profit} profit today)
+# 結果 hi, #{name} earn $#{profit} profit today
+puts &#39;hi, #{name} earn $#{profit} profit today&#39;
+puts %q(hi, #{name} earn $#{profit} profit today)
 </code></pre><h1 id="數字">數字<a hidden class="anchor" aria-hidden="true" href="#數字">#</a></h1>
 <pre tabindex="0"><code># 四捨五入，取到整數
 puts 0.15.round # 1

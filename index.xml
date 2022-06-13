@@ -43,7 +43,7 @@ x = 0 loop do puts x x += 1 break if x &amp;gt; 10 end method 迴圈 使用 brea
       <pubDate>Mon, 13 Jun 2022 10:40:01 +0800</pubDate>
       
       <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/</guid>
-      <description>字串 name = &amp;#34;Fire&amp;#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts &amp;#34;hi, #{name} made $#{profit} profit today&amp;#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts &amp;#39;hi, #{name} made $#{profit} profit today&amp;#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.</description>
+      <description>字串 name = &amp;#34;Fire&amp;#34; profit = 10000 # 可以帶變數 # 結果 Fire earn $10000 profit today puts &amp;#34;hi, #{name} earn $#{profit} profit today&amp;#34; puts %Q(hi, #{name} earn $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} earn $#{profit} profit today puts &amp;#39;hi, #{name} earn $#{profit} profit today&amp;#39; puts %q(hi, #{name} earn $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.</description>
     </item>
     
     <item>

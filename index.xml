@@ -6,7 +6,49 @@
     <description>Recent content on Fire int the hold Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 10 Jun 2022 11:22:26 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jun 2022 10:58:01 +0800</lastBuildDate><atom:link href="https://fire-in-the-hold.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>學習 Ruby 123 - 4 迴圈與迭代</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/</link>
+      <pubDate>Mon, 13 Jun 2022 10:58:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby4/</guid>
+      <description>For 迴圈 list = [&amp;#34;apple&amp;#34;, &amp;#34;banana&amp;#34;, &amp;#34;cat&amp;#34;] for item in list puts item end while 迴圈 x = 0 while x &amp;lt; 10 puts x x += 1 end until 迴圈 與 while 成立條件相反，為 while not
+x = 0 while x &amp;gt; 10 puts x x += 1 end loop 迴圈 使用 break 跳脫迴圈
+x = 0 loop do puts x x += 1 break if x &amp;gt; 10 end method 迴圈 使用 break 跳脫迴圈</description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 3 字串與數字</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/</link>
+      <pubDate>Mon, 13 Jun 2022 10:40:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby3/</guid>
+      <description>字串 name = &amp;#34;Fire&amp;#34; profit = 100000 # 可以帶變數 # 結果 Fire made $100000 profit today puts &amp;#34;hi, #{name} made $#{profit} profit today&amp;#34; puts %Q(hi, #{name} made $#{profit} profit today) # 不可以帶變數 # 結果 hi, #{name} made $#{profit} profit today puts &amp;#39;hi, #{name} made $#{profit} profit today&amp;#39; puts %q(hi, #{name} made $#{profit} profit today) 數字 # 四捨五入，取到整數 puts 0.15.round # 1 puts 0.95.round # 1 # 取整數，無條件捨去 puts 0.12.floor # 0 puts 0.</description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 2 常數 變數</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby2/</link>
+      <pubDate>Mon, 13 Jun 2022 10:34:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby2/</guid>
+      <description>變數種類 # 區域變數 message = 123 x, y, z = [1, 2, 3] # x = 1, y = 2, z = 3 a += 123 # a = a + 123 a ||= 2 # a = a || 2 # 全域變數 $message = 123 # 實體變數 @message = 123 # 類別變數 @@message = 123 小貼士 Ruby 常數是可以變動的 </description>
+    </item>
+    
+    <item>
+      <title>學習 Ruby 123 - 1 Hello owrld</title>
+      <link>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/</link>
+      <pubDate>Mon, 13 Jun 2022 01:34:01 +0800</pubDate>
+      
+      <guid>https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby/</guid>
+      <description>Hello world $ruby -e &amp;#39;puts &amp;#39;hello world&amp;#39; 使用 irb (Interactive Ruby)
+$ irb &amp;gt; puts &amp;#39;Hello world&amp;#39; 直接使用檔案
+$ ruby hello.rb 印出
+# 印出 hello world print &amp;#34;hello world&amp;#34; # 印出 hello world 後面有換行 puts &amp;#34;hello world&amp;#34; # 印出 &amp;#34;hello world&amp;#34; 包含雙引號，後面有換行 p &amp;#34;hello world&amp;#34; 註解 # 單行註解 =begin 這是一個 多行的 註解 =end Gem ruby 的套件管理工具 https://rubygems.org/?locale=zh-TW
+安裝套件 $ gem install hello-world 查詢環境 $ gem env 可使用資源 線上直接執行 ruby https://replit.com/</description>
+    </item>
+    
     <item>
       <title>Manager Macbook Touch Bar</title>
       <link>https://fire-in-the-hold.github.io/posts/2022/06/manager-macbook-touch-bar/</link>

@@ -138,6 +138,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>學習 Ruby 123 - 7 雜錯
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>建立雜錯 profile = {} profile = Hash.new profile = Hash[] 新舊寫法 # 舊寫法 profile = { :name =&gt; &#39;Fire&#39;, :assets =&gt; 10000 } # 新寫法 Ruby 1.9 版本以後 profile = { name: &#39;Fire&#39;, assets: 10000 } profile[:name] # Fire profile[:assets] # 10000 雜錯方法 profile = { name: &#39;Fire&#39;, assets: 10000 } p profile.keys # [:name, :assets] p profile.values # [&#34;Fire&#34;, 10000] 小貼士 Ruby 手冊 Hash https://ruby-doc.org/core/Hash.html </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 13:00:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 7 雜錯" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>學習 Ruby 123 - 6 流程與邏輯控制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>等號 a = 10 b = &#34;10&#34; c = 10 p a == b # false p a === b # false p a == c # true p a === c # true if age = 19 if age &gt;= 18 p &#34;已成年&#34; end p &#34;已成年&#34; if age &gt;= 18 unless age = 12 if not age &gt;= 18 p &#34;未成年&#34; end unless age &gt;= 18 p &#34;未成年&#34; end p &#34;未成年&#34; unless age &gt;= 18 if ....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-13 12:23:01 +0800 CST'>June 13, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to 學習 Ruby 123 - 6 流程與邏輯控制" href="https://fire-in-the-hold.github.io/posts/2022/06/learn-ruby6/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>學習 Ruby 123 - 5 陣列
     </h2>
   </header>
@@ -247,7 +271,7 @@ VSCode 一個功能特別多的文字編輯器
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://fire-in-the-hold.github.io">Fire int the hold Blog</a></span>
+    <span>&copy; 2023 <a href="https://fire-in-the-hold.github.io">Fire int the hold Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
